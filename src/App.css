@@ -1,6 +1,6 @@
 :root {
   --background: whitesmoke;
-  --lgrbuttons: rgb(211, 189, 189);
+  --lgrbuttons: rgb(67, 149, 255);
   --font: #393939;
 }
 
@@ -26,17 +26,17 @@ a {
   padding: 20px;
   border-radius: 10px;
   background-color: var(--lgrbuttons);
+  color: white;
 }
 
 #sectionL {
-  /* background-color: rgb(255, 255, 255); */
   width: 60%;
 }
 
-#sectionR {
+/* #sectionR {
   background-color: rgb(155, 57, 57);
   width: 20%;
-}
+} */
 
 #workTitle {
   position: absolute;
@@ -66,6 +66,8 @@ a {
 
 .intro {
   text-align: center;
+  margin-top: 500px;
+  margin-bottom: 500px;
 }
 
 /* .containar {

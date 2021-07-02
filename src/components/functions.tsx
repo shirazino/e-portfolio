@@ -1,13 +1,13 @@
 export function Mywork() {
   return (
-    <div>
+    <div className="d-flex flex-nowrap mb-3">
       <a href="https://github.com/kashif-js">
         See more on GitHub
         <img
           className="ms-2"
           src="http://pngimg.com/uploads/github/github_PNG40.png"
-          height="40px"
-          width="40px"
+          height="30px"
+          width="30px"
           alt="git logo"
         />
       </a>
@@ -29,7 +29,7 @@ export function ListProjects(): any {
   var arr = first.map((x, index) => {
     return (
       <button key={index} className="projects" onClick={() => btnClick(x)}>
-        <h3 key={index}>{x}</h3>
+        {x}
       </button>
     );
   });
@@ -63,10 +63,14 @@ export function Skills(): any {
   ];
 
   var map = skills.map((y, index) => {
-    return <ul key={index}>{y}</ul>;
+    return (
+      <p className="mx-4" key={index}>
+        {y}
+      </p>
+    );
   });
 
-  return <ul className="d-flex flex-wrap flex-row">{map}</ul>;
+  return <p className="d-flex flex-wrap flex-row">{map}</p>;
 }
 
 export function GlitchEffect(props: any) {

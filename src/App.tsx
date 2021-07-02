@@ -14,7 +14,6 @@ function App() {
       <Switch>
         <Route exact path={process.env.PUBLIC_URL} component={Homepage}></Route>
         <Route
-          exact
           path={`${process.env.PUBLIC_URL}/work/:name`}
           component={Work}
         ></Route>

@@ -8,6 +8,7 @@ export function Mywork() {
           src="http://pngimg.com/uploads/github/github_PNG40.png"
           height="40px"
           width="40px"
+          alt="git logo"
         />
       </a>
     </div>
@@ -25,20 +26,18 @@ export function ListProjects(): any {
     "e-Portfolio",
   ];
 
-  var arr = first.map((x) => {
+  var arr = first.map((x, index) => {
     return (
-      <div>
-        <button className="projects" onClick={() => btnClick(x)}>
-          <h3>{x}</h3>
-        </button>
-      </div>
+      <button key={index} className="projects" onClick={() => btnClick(x)}>
+        <h3 key={index}>{x}</h3>
+      </button>
     );
   });
   return <p className="d-flex flex-wrap flex-row">{arr}</p>;
 }
 
 function btnClick(x: string) {
-  window.open(`/work/${x}`, "_self");
+  window.open(`${process.env.PUBLIC_URL}/work/${x}`, "_self");
 }
 
 export function Skills(): any {
@@ -63,15 +62,11 @@ export function Skills(): any {
     "Serverless computing",
   ];
 
-  var map = skills.map((y) => {
-    return <ul>{y}</ul>;
+  var map = skills.map((y, index) => {
+    return <ul key={index}>{y}</ul>;
   });
 
-  return (
-    <div>
-      <ul className="d-flex flex-wrap flex-row">{map}</ul>
-    </div>
-  );
+  return <ul className="d-flex flex-wrap flex-row">{map}</ul>;
 }
 
 export function GlitchEffect(props: any) {

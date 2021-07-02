@@ -30,10 +30,12 @@ export function Homepage() {
           <p>Contact me at</p>
           <div className="d-flex flex-row mt-4">
             <ul className="mx-4">
-              <a href="">Mail</a>{" "}
+              <a href="mailto:kashiftauseef@gmail.com">Mail</a>
             </ul>
             <ul className="mx-4">
-              <a href="">LinkedIn</a>{" "}
+              <a href="https://www.linkedin.com/in/kashif-tauseef-42268a1a0/">
+                LinkedIn
+              </a>
             </ul>
           </div>
         </section>

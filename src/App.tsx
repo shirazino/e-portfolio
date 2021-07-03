@@ -13,12 +13,16 @@ function App() {
       {/* <Navbar /> */}
       <Switch>
         <Route exact path={process.env.PUBLIC_URL} component={Homepage}></Route>
-        <Route path="e-portfolio/work/:name" component={Work}></Route>
+        <Route
+          exact
+          path={`${process.env.PUBLIC_URL}/work/:name`}
+          component={Work}
+        ></Route>
         <Route
           path="/"
           render={() => (
             <h1 className="d-flex justify-content-center err404">
-              404 Not Found!
+              404 Not Found ⛔
             </h1>
           )}
         ></Route>

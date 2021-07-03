@@ -8,7 +8,7 @@ export const Work: React.FC<Props> = ({ match }) => {
 
   return (
     <div id="main">
-      <h1 id="workTitle">{match.params.name}</h1>
+      <h1 className="workTitle">{match.params.name}</h1>
       {CheckParams(match.params.name)}
     </div>
   );

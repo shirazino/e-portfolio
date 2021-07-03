@@ -7,7 +7,6 @@
 
 body {
   background-color: var(--background);
-
   background-image: url("/src/media/stars.png");
 }
 h1,
@@ -20,11 +19,16 @@ p,
 ul {
   color: var(--font);
   font-family: "JetBrains Mono", monospace;
-  /* font-family: "Roboto", sans-serif; */
 }
 
 .name {
   font-family: "Cedarville Cursive", cursive;
+  font-size: 30px;
+}
+
+.workTitle {
+  text-align: center;
+  margin-top: 20px;
 }
 
 .arrow {
@@ -33,6 +37,8 @@ ul {
 
 #sectionL {
   width: 60%;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 /* #sectionR {

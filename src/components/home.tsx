@@ -1,35 +1,45 @@
+import { useState, useEffect } from "react";
 import { Mywork, ListProjects, Skills } from "./functions";
 
 export function Homepage(): any {
-  var w = window.innerWidth;
-  var h = window.innerHeight;
-  var style;
-  if (h < 820 && w < 420) {
-    var width = { width: 320 };
-    style = {
-      marginTop: h / 2 - 50,
-      marginBottom: h / 2,
-      // width: 320,
-    };
-  } else {
-    style = {
-      marginTop: h / 2 - 50,
-      marginBottom: h / 2,
-    };
-  }
+  const [fontSize, setFontSize] = useState({});
+  const [windowSize, setWindowSize] = useState({});
+  var style = {
+    marginTop: window.innerHeight / 2 - 50,
+    marginBottom: window.innerHeight / 2,
+  };
+
+  useEffect(() => {
+    function handleResize() {
+      if (window.innerHeight < 820 && window.innerWidth < 420) {
+        setWindowSize({ width: 320 });
+        setFontSize({ fontSize: 30 });
+      } else {
+        setWindowSize({ width: 700 });
+        setFontSize({ fontSize: 50 });
+      }
+    }
+    // Add event listener
+    window.addEventListener("resize", handleResize);
+    // Call handler right away so state gets updated with initial window size
+    handleResize();
+    // Remove event listener on cleanup
+    // return () => window.removeEventListener("resize", handleResize);
+  }, [window.innerHeight, window.innerWidth]);
+
   return (
     <div>
       <div
         style={style}
         className="d-flex flex-column align-items-center intro"
       >
-        <h1 className="name">Hi, I'm Kashif Tauseef.</h1>
-        <p>
-          Full stack software engineer{" "}
-          <p>who can build beautiful Node and React apps and much more!</p>
-          <p>Scroll down to check out my work</p>
-        </p>
-
+        {/* style={adjustName} */}
+        <h1 className="name" style={fontSize}>
+          Hi, I'm Kashif Tauseef.
+        </h1>
+        <p>Full Stack Software Engineer </p>
+        <p>who can build beautiful Node & React apps and much more!</p>
+        <p>Scroll down to check out my work</p>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="35"
@@ -45,7 +55,7 @@ export function Homepage(): any {
         </svg>
       </div>
       <div className="d-flex flex-row justify-content-around">
-        <section id="sectionL" style={width}>
+        <section id="sectionL" style={windowSize}>
           <h1 className="">My work</h1>
           <p id="work">
             A lot of my project involve work done with React and React Native

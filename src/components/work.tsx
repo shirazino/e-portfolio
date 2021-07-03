@@ -4,6 +4,8 @@ import { RouteComponentProps } from "react-router";
 interface Props extends RouteComponentProps<{ name: string }> {}
 
 export const Work: React.FC<Props> = ({ match }) => {
+  console.log(match.params.name);
+
   return (
     <div id="main">
       <h1 id="workTitle">{match.params.name}</h1>

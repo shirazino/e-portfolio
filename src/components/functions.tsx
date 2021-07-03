@@ -28,7 +28,7 @@ export function ListProjects(): any {
 
   var arr = first.map((x, index) => {
     return (
-      <button key={index} className="projects" onClick={() => btnClick(x)}>
+      <button key={index} className="btns" onClick={() => btnClick(x)}>
         {x}
       </button>
     );

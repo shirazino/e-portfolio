@@ -3,31 +3,46 @@ import { Mywork, ListProjects, Skills } from "./functions";
 export function Homepage(): any {
   var w = window.innerWidth;
   var h = window.innerHeight;
+  var style;
   if (h < 820 && w < 420) {
     var width = { width: 320 };
-    var style = {
+    style = {
       marginTop: h / 2 - 50,
       marginBottom: h / 2,
-      // width: width.width,
+      // width: 320,
     };
-    // var btnSize = {
-    //   padding: "10px",
-    //   margin: "10px",
-    // };
+  } else {
+    style = {
+      marginTop: h / 2 - 50,
+      marginBottom: h / 2,
+    };
   }
   return (
     <div>
       <div
-        id="main"
         style={style}
         className="d-flex flex-column align-items-center intro"
       >
-        <h1 className="">Hi, I'm Kashif</h1>
-        <p className="">
-          Full stack software engineer who can build beautiful Node and React
-          apps and much more! <p>Scroll down to check out my work</p>
+        <h1 className="name">Hi, I'm Kashif Tauseef.</h1>
+        <p>
+          Full stack software engineer{" "}
+          <p>who can build beautiful Node and React apps and much more!</p>
+          <p>Scroll down to check out my work</p>
         </p>
-        {/* <GlitchEffect text="Kashif Tauseef" /> */}
+
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="35"
+          height="35"
+          fill="currentColor"
+          className="bi bi-arrow-down-circle arrow"
+          viewBox="0 0 16 16"
+        >
+          <path
+            fillRule="evenodd"
+            d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V4.5z"
+          />
+        </svg>
       </div>
       <div className="d-flex flex-row justify-content-around">
         <section id="sectionL" style={width}>
@@ -45,7 +60,7 @@ export function Homepage(): any {
           <h1>My skills</h1>
           <Skills />
           <h1>Contact</h1>
-          <p>You can contact me at: </p>
+          <p className="mb-5">You can contact me at: </p>
           <div className="d-flex flex-row my-4">
             <p className="mx-4">
               <a href="mailto:kashiftauseef@gmail.com">Mail</a>

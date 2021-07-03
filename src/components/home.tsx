@@ -25,7 +25,7 @@ export function Homepage(): any {
     handleResize();
     // Remove event listener on cleanup
     // return () => window.removeEventListener("resize", handleResize);
-  }, [window.innerHeight, window.innerWidth]);
+  }, [window.innerWidth]);
 
   return (
     <div>

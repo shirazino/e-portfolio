@@ -9,15 +9,11 @@ import { Work } from "./components/work";
 function App() {
   // console.log(process.env.PUBLIC_URL);
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       {/* <Navbar /> */}
       <Switch>
-        <Route exact path={process.env.PUBLIC_URL} component={Homepage}></Route>
-        <Route
-          exact
-          path={`${process.env.PUBLIC_URL}/work/:name`}
-          component={Work}
-        ></Route>
+        <Route exact path="/" component={Homepage}></Route>
+        <Route path={"/work/:name"} component={Work}></Route>
         <Route
           path="/"
           render={() => (

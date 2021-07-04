@@ -28,17 +28,21 @@ export function ListProjects(): any {
 
   var arr = first.map((x, index) => {
     return (
-      <button key={index} className="btns" onClick={() => btnClick(x)}>
+      <a
+        key={index}
+        className="btns"
+        href={process.env.PUBLIC_URL + "/work/" + x}
+      >
         {x}
-      </button>
+      </a>
     );
   });
   return <p className="d-flex flex-wrap flex-row">{arr}</p>;
 }
 
-function btnClick(x: string) {
-  window.open(`${process.env.PUBLIC_URL}/work/${x}`, "_self");
-}
+// function btnClick(x: string) {
+//   window.open(`${process.env.PUBLIC_URL}/work/${x}`, "_self");
+// }
 
 export function Skills(): any {
   var skills: string[] = [

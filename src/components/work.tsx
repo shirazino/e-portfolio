@@ -1,5 +1,6 @@
 import React from "react";
 import { RouteComponentProps } from "react-router";
+import { Redirect } from "react-router-dom";
 
 interface Props extends RouteComponentProps<{ name: string }> {}
 
@@ -16,16 +17,16 @@ export const Work: React.FC<Props> = ({ match }) => {
 
 function CheckParams(props: any) {
   switch (props) {
-    case "HTML teaching platform":
+    case "HTML Tutor<>":
       return <HTMLApp />;
       break;
     case "Notion API":
       return <h1>add notion stuff</h1>;
       break;
-    case "Coffee rating App":
+    case "Coffida Coffee rating app":
       return <CoffeeApp />;
       break;
-    case "Node js backend (HTML teaching website)":
+    case "HTML Tutor<> backend":
       return <HTMLApp />;
       break;
     case "Local Mosque Alexa (automation IoT)":
@@ -38,7 +39,7 @@ function CheckParams(props: any) {
       return <h1>under construction</h1>;
       break;
     default:
-      return window.open("/notfound", "_self");
+      return <Redirect to="/notfound" />;
   }
 }
 

@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export function Mywork() {
   return (
     <div className="d-flex flex-nowrap mb-3">
@@ -17,32 +19,24 @@ export function Mywork() {
 
 export function ListProjects(): any {
   var first: string[] = [
+    "HTML Tutor<>",
+    "HTML Tutor<> backend",
+    "Coffida Coffee rating app",
     "Notion API",
-    "HTML teaching platform",
-    "Coffee rating App",
-    "Node js backend (HTML teaching website)",
     "Local Mosque Alexa (automation IoT)",
-    "Odd One Out game",
     "e-Portfolio",
+    "Odd One Out game",
   ];
 
   var arr = first.map((x, index) => {
     return (
-      <a
-        key={index}
-        className="btns"
-        href={process.env.PUBLIC_URL + "/work/" + x}
-      >
+      <Link key={index} className="btns" to={"/work/" + x}>
         {x}
-      </a>
+      </Link>
     );
   });
   return <p className="d-flex flex-wrap flex-row">{arr}</p>;
 }
-
-// function btnClick(x: string) {
-//   window.open(`${process.env.PUBLIC_URL}/work/${x}`, "_self");
-// }
 
 export function Skills(): any {
   var skills: string[] = [
@@ -61,7 +55,7 @@ export function Skills(): any {
     "AWS",
     "Google Cloud platform",
     "Heroku",
-    "Iot",
+    "IOT",
     "CLI",
     "Serverless computing",
   ];
@@ -74,25 +68,7 @@ export function Skills(): any {
     );
   });
 
-  return <p className="d-flex flex-wrap flex-row">{map}</p>;
-}
-
-export function GlitchEffect(props: any) {
-  return (
-    <div className="containar">
-      <h1 className="main-text">
-        <em id="intro">{props.text}</em>
-      </h1>
-      <div className="color-div1"></div>
-      <div className="color-div2"></div>
-      <div className="color-div3"></div>
-      <div className="color-div4"></div>
-      <div className="color-div5"></div>
-      <div className="color-div6"></div>
-      <div className="color-div7"></div>
-      <div className="color-div8"></div>
-    </div>
-  );
+  return <div className="d-flex flex-wrap flex-row">{map}</div>;
 }
 
 export function Navbar(): any {

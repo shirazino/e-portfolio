@@ -17,22 +17,22 @@ export const Work: React.FC<Props> = ({ match }) => {
 
 function CheckParams(props: any) {
   switch (props) {
-    case "HTML Tutor<>":
+    case "HTML Tutor":
       return <HTMLApp />;
       break;
     case "Notion API":
       return <h1>add notion stuff</h1>;
       break;
-    case "Coffida Coffee rating app":
+    case "Coffi-da reviews app":
       return <CoffeeApp />;
       break;
-    case "HTML Tutor<> backend":
+    case "HTML Tutor backend":
       return <HTMLApp />;
       break;
-    case "Local Mosque Alexa (automation IoT)":
+    case "Local Mosque IOT":
       return <h1>add more screens!</h1>;
       break;
-    case "Odd One Out game":
+    case "Out Of The Loop game":
       return <OddOneOutGame />;
       break;
     case "e-Portfolio":

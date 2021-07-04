@@ -16,7 +16,8 @@ h4,
 h5,
 h6,
 p,
-ul {
+ul,
+a {
   color: var(--font);
   font-family: "JetBrains Mono", monospace;
 }
@@ -41,6 +42,12 @@ ul {
   margin-right: 20px;
 }
 
+.contactLinks {
+  background-color: inherit;
+  border-style: solid;
+  border-color: var(--lgrbuttons);
+}
+
 /* #sectionR {
   background-color: rgb(155, 57, 57);
   width: 20%;
@@ -48,12 +55,22 @@ ul {
 
 .btns,
 a {
-  color: var(--links);
+  color: var(--font);
   padding: 20px;
   margin-right: 20px;
   margin-bottom: 20px;
-  border-radius: 20px;
-  background-color: var(--lgrbuttons);
+  border-radius: 15px;
+  border-style: solid;
+  border-color: var(--lgrbuttons);
+  text-decoration: none;
+  /* background-color: var(--lgrbuttons); */
+}
+
+a:hover {
+  color: var(--lgrbuttons);
+  /* text-decoration:; */
+  text-transform: uppercase;
+  font-style: italic;
 }
 
 .nav {

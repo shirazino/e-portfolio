@@ -7,7 +7,7 @@ export function Mywork() {
         See more on GitHub
         <img
           className="ms-2"
-          src="http://pngimg.com/uploads/github/github_PNG40.png"
+          src="https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../assets/preview/2012/png/iconmonstr-github-1.png&r=255&g=255&b=255"
           height="30px"
           width="30px"
           alt="git logo"
@@ -19,13 +19,19 @@ export function Mywork() {
 
 export function ListProjects(): any {
   var first: string[] = [
-    "HTML Tutor<>",
-    "HTML Tutor<> backend",
-    "Coffida Coffee rating app",
-    "Notion API",
-    "Local Mosque Alexa (automation IoT)",
+    "HTML Tutor",
+    "HTML Tutor backend",
+    "Coffi-da reviews app",
     "e-Portfolio",
-    "Odd One Out game",
+    "MVC Survey PHP",
+    "The PHP-focused Assessment",
+    "Java Server Pages",
+    "Java Aircraft Passenger",
+    "Android Programming",
+    "Notion API",
+    "Local Mosque IOT",
+
+    "Out Of The Loop game",
   ];
 
   var arr = first.map((x, index) => {

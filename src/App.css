@@ -48,6 +48,10 @@ a {
   border-color: var(--lgrbuttons);
 }
 
+svg:hover {
+  fill: var(--lgrbuttons);
+}
+
 /* #sectionR {
   background-color: rgb(155, 57, 57);
   width: 20%;
@@ -57,7 +61,8 @@ a {
 a {
   color: var(--font);
   padding: 20px;
-  margin-right: 20px;
+  margin-right: 10px;
+  margin-left: 10px;
   margin-bottom: 20px;
   border-radius: 15px;
   border-style: solid;
@@ -79,6 +84,12 @@ a:hover {
   position: sticky;
   top: 0px;
   z-index: 1;
+}
+
+.justLinks {
+  border-style: none;
+  color: var(--font);
+  text-decoration: underline;
 }
 
 .intro {

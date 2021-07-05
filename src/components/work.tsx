@@ -5,8 +5,6 @@ import { Redirect } from "react-router-dom";
 interface Props extends RouteComponentProps<{ name: string }> {}
 
 export const Work: React.FC<Props> = ({ match }) => {
-  console.log(match.params.name);
-
   return (
     <div id="main">
       <h1 className="workTitle">{match.params.name}</h1>
@@ -19,25 +17,18 @@ function CheckParams(props: any) {
   switch (props) {
     case "HTML Tutor":
       return <HTMLApp />;
-      break;
     case "Notion API":
-      return <h1>add notion stuff</h1>;
-      break;
+      return <NotionAPI />;
     case "Coffi-da reviews app":
       return <CoffeeApp />;
-      break;
     case "HTML Tutor backend":
-      return <HTMLApp />;
-      break;
+      return <HTMLBackend />;
     case "Local Mosque IOT":
-      return <h1>add more screens!</h1>;
-      break;
+      return <LocalMosque />;
     case "Out Of The Loop game":
       return <OddOneOutGame />;
-      break;
     case "e-Portfolio":
-      return <h1>under construction</h1>;
-      break;
+      return <EPortfolio />;
     default:
       return <Redirect to="/notfound" />;
   }
@@ -93,6 +84,34 @@ function HTMLApp(): any {
         width={width}
         height={height}
       />
+    </div>
+  );
+}
+
+function HTMLBackend() {
+  return (
+    <div className="mx-4">
+      <p>
+        This is the back-end for the HTML teaching and learning platform. <br />{" "}
+        Built with Node JS{" "}
+      </p>
+      <ul>
+        <li>Node JS</li>
+        <li>Express JS</li>
+        <li>MongoDB</li>
+        <li>Mongoose Object Modeling</li>
+        <li>CORS</li>
+        <li>Body Parser</li>
+        <li>Crypto hashing</li>
+        <li>Nodemon</li>
+        <li>Heroku</li>
+      </ul>
+      <a
+        href="https://github.com/kashif-js/nodejs-server"
+        className="justLinks"
+      >
+        Browse code
+      </a>
     </div>
   );
 }
@@ -215,6 +234,48 @@ function OddOneOutGame() {
         //height={height}
         //width={width}
       />
+    </div>
+  );
+}
+
+function EPortfolio() {
+  return (
+    <div className="mx-4">
+      <p>This actual website was developed to showcase my work.</p>
+      <p>Stack used:</p>
+      <ul>
+        <li>React</li>
+        <li>Node JS</li>
+        <li>TypeScript</li>
+        <li>JavaScript</li>
+        <li>Notion API</li>
+        <li>Bootstrap5</li>
+        <li>Git</li>
+      </ul>
+      <a className="justLinks" href="https://github.com/kashif-js/e-portfolio">
+        Browse Code
+      </a>
+    </div>
+  );
+}
+
+function NotionAPI() {
+  return (
+    <div className="mx-4">
+      <p>
+        Notion Api is often used in my projects to save data to my blocks that
+        is coming from some websites. <br /> Databases can do this job too,
+        however Notion has more accessibility features, such as mobile app where
+        changes can easily impact web data.
+      </p>
+    </div>
+  );
+}
+
+function LocalMosque() {
+  return (
+    <div className="mx-4">
+      <img src="src\media\alexa1.png" alt="Alexa dev console" />
     </div>
   );
 }

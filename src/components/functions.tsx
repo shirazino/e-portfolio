@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 export function Mywork() {
   return (
     <div className="d-flex flex-nowrap mb-3">
-      <a href="https://github.com/kashif-js">
+      <a href="https://github.com/kashif-js" className="justLinks mx-auto">
         See more on GitHub
         <img
           className="ms-2"
@@ -17,30 +17,61 @@ export function Mywork() {
   );
 }
 
-export function ListProjects(): any {
-  var first: string[] = [
-    "HTML Tutor",
-    "HTML Tutor backend",
-    "Coffi-da reviews app",
-    "e-Portfolio",
-    "MVC Survey PHP",
-    "The PHP-focused Assessment",
-    "Java Server Pages",
-    "Java Aircraft Passenger",
-    "Android Programming",
-    "Notion API",
-    "Local Mosque IOT",
+export function ListProjects() {
+  var works = {
+    React: ["HTML Tutor", "HTML Tutor backend", "e-Portfolio"],
+    ReactNative: ["Coffi-da reviews app"],
+    PHP: ["Games reviews PHP", "PHP Survey"],
+    Java: ["Java Movies DB", "Java Aircraft Passenger", "Android Programming"],
+    other: ["Notion API", "Local Mosque IOT", "Out Of The Loop game"],
+  };
 
-    "Out Of The Loop game",
+  var folder = [
+    works.React,
+    works.ReactNative,
+    works.PHP,
+    works.Java,
+    works.other,
   ];
 
-  var arr = first.map((x, index) => {
+  var arr1 = folder[0].map((x, index) => {
     return (
       <Link key={index} className="btns" to={"/work/" + x}>
         {x}
       </Link>
     );
   });
+  var arr2 = folder[1].map((x, index) => {
+    return (
+      <Link key={index} className="btns" to={"/work/" + x}>
+        {x}
+      </Link>
+    );
+  });
+  var arr3 = folder[2].map((x, index) => {
+    return (
+      <Link key={index} className="btns" to={"/work/" + x}>
+        {x}
+      </Link>
+    );
+  });
+  var arr4 = folder[3].map((x, index) => {
+    return (
+      <Link key={index} className="btns" to={"/work/" + x}>
+        {x}
+      </Link>
+    );
+  });
+  var arr5 = folder[4].map((x, index) => {
+    return (
+      <Link key={index} className="btns" to={"/work/" + x}>
+        {x}
+      </Link>
+    );
+  });
+
+  // console.log(arr);
+
   return (
     <div>
       <h1 className="mb-3">My work</h1>
@@ -50,7 +81,20 @@ export function ListProjects(): any {
         <br />
         Here I have linked my most successful projects from GitHub.
       </p>
-      <p className="d-flex flex-wrap flex-row">{arr}</p>
+      <h5>{Object.keys(works)[0]}</h5>
+      <p className="d-flex flex-wrap flex-row">{arr1}</p>
+      <h5>{Object.keys(works)[1].replace("t", "t ")}</h5>
+      <p className="d-flex flex-wrap flex-row">{arr2}</p>
+      <h5>{Object.keys(works)[2]}</h5>
+      <p className="d-flex flex-wrap flex-row">{arr3}</p>
+      <h5>{Object.keys(works)[3]}</h5>
+      <p className="d-flex flex-wrap flex-row">{arr4}</p>
+      <h5>{Object.keys(works)[4]}</h5>
+      <p className="d-flex flex-wrap flex-row">{arr5}</p>
+      {/* 
+      
+      
+       */}
     </div>
   );
 }
@@ -58,7 +102,7 @@ export function ListProjects(): any {
 export function Skills(): any {
   var skills: string[] = [
     "JavaScript",
-    "React",
+    "React JS",
     "React Native",
     "Node js",
     "TypeScript",
@@ -86,8 +130,9 @@ export function Skills(): any {
   ];
 
   var map = skills.map((y, index) => {
+    // map.push("React", 3);
     return (
-      <p className="mx-4" key={index}>
+      <p className="skills" key={index}>
         {y}
       </p>
     );
@@ -110,9 +155,9 @@ export function Education() {
       grade: "completed",
     },
   ];
-  var arr = qualifications.map((x) => {
+  var arr = qualifications.map((x, index) => {
     return (
-      <p className="mx-4">
+      <p className="mx-4" key={index}>
         {x.title} - {x.grade}
       </p>
     );
@@ -144,8 +189,8 @@ export function Contact({ auto }: any) {
   return (
     <div className="mb-3">
       <h1 className="mb-3">Contact</h1>
-      <p className="mx-4 mb-5">You can contact me at: </p>
-      <div className={`d-flex flex-row ${auto} my-4`}>
+      <p className="mx-4 ">You can contact me at: </p>
+      <div className={`d-flex flex-row ${auto} my-4 mb-5`}>
         <p>
           <a href="mailto:kashiftauseef@gmail.com" className="contactLinks">
             <svg

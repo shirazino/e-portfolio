@@ -7,66 +7,8 @@ import {
   CV,
   Contact,
 } from "./functions";
-
-var axios = require("axios");
-
-function notionData(): any {
-  var data = JSON.stringify({
-    children: [
-      {
-        object: "block",
-        type: "heading_2",
-        heading_2: {
-          text: [
-            {
-              type: "text",
-              text: {
-                content: "Lacinato kale",
-              },
-            },
-          ],
-        },
-      },
-      {
-        object: "block",
-        type: "paragraph",
-        paragraph: {
-          text: [
-            {
-              type: "text",
-              text: {
-                content:
-                  "Lacinato kale is a variety of kale with a long tradition in Italian cuisine, especially that of Tuscany. It is also known as Tuscan kale, Italian kale, dinosaur kale, kale, flat back kale, palm tree kale, or black Tuscan palm.",
-                link: {
-                  url: "https://en.wikipedia.org/wiki/Lacinato_kale",
-                },
-              },
-            },
-          ],
-        },
-      },
-    ],
-  });
-
-  var config = {
-    method: "patch",
-    url: "https://api.notion.com/v1/blocks/78419d9556b84efeb9948f90d9f1e5b8/children",
-    headers: {
-      Authorization: process.env.Token,
-      "Content-Type": "application/json",
-      "Notion-Version": "2021-05-13",
-    },
-    data: data,
-  };
-
-  axios(config)
-    .then(function (response: any) {
-      // console.log(JSON.stringify(response.data));
-    })
-    .catch(function (error: string) {
-      // console.log(error);
-    });
-}
+import { ToNotion } from "./notion";
+import $ from "jquery";
 
 export function Homepage(): any {
   const [fontSize, setFontSize] = useState({});
@@ -77,27 +19,39 @@ export function Homepage(): any {
     marginBottom: window.innerHeight / 2,
   };
 
-  notionData();
-
   useEffect(() => {
     function handleResize() {
-      if (window.innerHeight < 820 && window.innerWidth < 420) {
+      if (window.innerWidth < 420) {
         setWindowSize({ width: 320 });
         setFontSize({ fontSize: 30 });
         setJustify("justify-content-evenly");
+        $("#svg").hide();
+        $(".arrowD").show();
       } else {
         setWindowSize({ width: 700 });
         setFontSize({ fontSize: 50 });
         setJustify("justify-content-start");
+        $(".arrowD").hide();
+        $("#svg").show();
       }
     }
-    // Add event listener
+    // ToNotion(process.env.BLOCK);
+
     window.addEventListener("resize", handleResize);
     // Call handler right away so state gets updated with initial window size
     handleResize();
     // Remove event listener on cleanup
     return () => window.removeEventListener("resize", handleResize);
   }, [window.innerWidth]);
+
+  $("#svg").click(function () {
+    $([document.documentElement, document.body]).animate(
+      {
+        scrollTop: $("#sectionL").offset().top,
+      },
+      500
+    );
+  });
 
   return (
     <div>
@@ -115,13 +69,24 @@ export function Homepage(): any {
             who can build beautiful Node & React apps and much more! <br />
             Scroll down to check out my work
           </p>
+          <img
+            className="arrowD"
+            src="https://am3pap005files.storage.live.com/y4mgGxeLL4bmrztT9IxBuQuqJfNFPJYSaeCzPno6YZ4ous987GPWy4ATwzQR3l21pd9SnbUuGXjeKtx2LoQh5gVfccLM7OHbqN89iZYGqUiKiraMa93uq6FgiVnNkclE6c12e9r4A8IyJ43tcn3rMLcF6lcjjOtK4YtWyyUAAIYQ9dQ8llGGqmTk3ky_N-ntvxW4VJNDmRA1fpBR5Jr9O8UAw/up-arrow.png?psid=1&width=512&height=512&cropMode=center"
+            alt="arrowDown"
+            width="100"
+            // height="100"
+          />
           <svg
+            id="svg"
             xmlns="http://www.w3.org/2000/svg"
             width="35"
             height="35"
             fill="currentColor"
             className="bi bi-arrow-down-circle arrow"
             viewBox="0 0 16 16"
+            // onClick={() => {
+            //   boom();
+            // }}
           >
             <path
               fillRule="evenodd"

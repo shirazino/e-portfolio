@@ -1,8 +1,12 @@
 :root {
   --background: #2d2d2d;
   --lgrbuttons: #f48024;
+  --btnPadding: 15px;
+  --accent: #5e9eff;
   --font: white;
   --links: black;
+  --radius: 15px;
+  --border: 3px;
 }
 
 body {
@@ -44,8 +48,9 @@ a {
 
 .contactLinks {
   background-color: inherit;
+  padding: var(--btnPadding);
   border-style: solid;
-  border-color: var(--lgrbuttons);
+  border-color: var(--accent);
 }
 
 svg:hover {
@@ -60,20 +65,22 @@ svg:hover {
 .btns,
 a {
   color: var(--font);
-  padding: 20px;
+  padding: var(--btnPadding);
   margin-right: 10px;
   margin-left: 10px;
-  margin-bottom: 20px;
-  border-radius: 15px;
+  margin-bottom: 10px;
+  border-radius: var(--radius);
   border-style: solid;
   border-color: var(--lgrbuttons);
+  border-width: var(--border);
   text-decoration: none;
+  text-decoration: underline;
   /* background-color: var(--lgrbuttons); */
 }
 
 a:hover {
   color: var(--lgrbuttons);
-  /* text-decoration:; */
+  text-decoration: none;
   text-transform: uppercase;
   font-style: italic;
 }
@@ -88,8 +95,21 @@ a:hover {
 
 .justLinks {
   border-style: none;
+  padding: 0px;
   color: var(--font);
   text-decoration: underline;
+}
+
+.skills {
+  margin-left: 5px;
+  margin-right: 5px;
+  padding: var(--btnPadding);
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-width: var(--border);
+  border-style: solid;
+  border-color: var(--accent);
+  border-radius: var(--radius);
 }
 
 .intro {
@@ -99,4 +119,25 @@ a:hover {
 }
 .err404 {
   margin-top: 30px;
+}
+
+#carousel {
+  margin: auto;
+  width: 70%;
+  /* background-color: #f48024; */
+  overflow: auto;
+}
+
+#about {
+  margin: auto;
+  width: 70%;
+}
+
+@media only screen and (max-width: 400px) {
+  #carousel {
+    width: 90%;
+  }
+  #about {
+    width: 90%;
+  }
 }

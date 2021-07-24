@@ -7,7 +7,7 @@ import {
   CV,
   Contact,
 } from "./functions";
-import { ToNotion } from "./notion";
+import { ToNotion, saveData, getIP, getTime } from "./notion";
 import $ from "jquery";
 
 export function Homepage(): any {
@@ -35,7 +35,6 @@ export function Homepage(): any {
         $("#svg").show();
       }
     }
-    // ToNotion(process.env.BLOCK);
 
     window.addEventListener("resize", handleResize);
     // Call handler right away so state gets updated with initial window size
@@ -43,6 +42,16 @@ export function Homepage(): any {
     // Remove event listener on cleanup
     return () => window.removeEventListener("resize", handleResize);
   }, [window.innerWidth]);
+
+  useEffect(function persistForm() {
+    if (sessionStorage.getItem("accessed") == undefined) {
+      sessionStorage.setItem("accessed", `day - ${new Date().getDate()}`);
+      saveData();
+      // dataCollection();
+      // getIP();
+      // getTime();
+    }
+  });
 
   $("#svg").click(function () {
     $([document.documentElement, document.body]).animate(

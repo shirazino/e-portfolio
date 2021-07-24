@@ -1,75 +1,87 @@
-import { Client } from "@notionhq/client";
+export async function ToNotion() {
+  var https = require("follow-redirects").https;
+  var fs = require("fs");
 
-export async function ToNotion(blockID) {
-  // Listen on a specific host via the HOST environment variable
-  var host = process.env.HOST || "0.0.0.0";
-  // Listen on a specific port via the PORT environment variable
-  var port = process.env.PORT || 8080;
+  var options = {
+    method: "GET",
+    hostname: "notion-api-teal.vercel.app",
+    path: "/add",
+    headers: {},
+    maxRedirects: 20,
+  };
 
-  var cors_proxy = require("cors-anywhere");
-  cors_proxy
-    .createServer({
-      originWhitelist: [], // Allow all origins
-      requireHeader: ["origin", "x-requested-with"],
-      // removeHeaders: ["cookie", "cookie2"],
-    })
-    .listen(port, host, function () {
-      console.log("Running CORS Anywhere on " + host + ":" + port);
+  var req = https.request(options, function (res) {
+    var chunks = [];
+
+    res.on("data", function (chunk) {
+      chunks.push(chunk);
     });
 
-  const notion = new Client({ auth: process.env.AUTH });
-  //   const blockId = "9bd15f8d-8082-429b-82db-e6c4ea88413b";
-  // try {
-  //   const response = await notion.blocks.children.append({
-  //     block_id: process.env.BLOCK,
-  //     children: [
-  //       {
-  //         object: "block",
-  //         type: "heading_2",
-  //         heading_2: {
-  //           text: [
-  //             {
-  //               type: "text",
-  //               text: {
-  //                 content: "Lacinato kale",
-  //               },
-  //             },
-  //           ],
-  //         },
-  //       },
-  //       {
-  //         object: "block",
-  //         type: "paragraph",
-  //         paragraph: {
-  //           text: [
-  //             {
-  //               type: "text",
-  //               text: {
-  //                 content: "the content",
-  //                 link: {
-  //                   url: "https://en.wikipedia.org/wiki/Lacinato_kale",
-  //                 },
-  //               },
-  //             },
-  //           ],
-  //         },
-  //       },
-  //     ],
-  //   });
-  //   console.log(response);
-  //   return response;
-  // } catch (error) {
-  //   console.log(error);
-  // }
+    res.on("end", function (chunk) {
+      var body = Buffer.concat(chunks);
+      console.log(body.toString());
+    });
 
-  const response = await notion.blocks.children.list({
-    block_id: blockID,
-    page_size: 50,
+    res.on("error", function (error) {
+      console.error(error);
+    });
   });
-  console.log(response);
-  return response;
+
+  req.end();
 }
 
-// export function Cors() {
+export async function getIP() {
+  require("dotenv").config();
+  var axios = require("axios");
 
-// }
+  try {
+    const response = await axios.get(
+      `https://api.ipgeolocation.io/ipgeo?apiKey=ed649e7ecdb54dcfa2d60ad3e049b80c`
+    );
+    var json = {
+      IP: response.data.ip,
+      country: response.data.country_name,
+      city: response.data.city,
+      district: response.data.district,
+      coords: `${response.data.latitude} & ${response.data.longitude}`,
+      isporg: `${response.data.isp} & ${response.data.organization}`,
+      unixtime: response.data.time_zone.current_time_unix,
+    };
+    console.log(json);
+    return json;
+  } catch (error) {
+    console.log("error");
+    return "error";
+  }
+}
+
+export function getTime() {
+  const moment = require("moment");
+  var currentTime = moment().format("MMMM Do YYYY, h:mm:ss a");
+  return currentTime;
+}
+
+export async function saveData() {
+  var axios = require("axios");
+  var data = JSON.stringify({
+    time: await getTime(),
+    IP: JSON.stringify(await getIP()),
+  });
+
+  var config = {
+    method: "post",
+    url: "https://notion-api-teal.vercel.app/data",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    data: data,
+  };
+
+  axios(config)
+    .then(function (response) {
+      console.log(JSON.stringify(response.data));
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+}

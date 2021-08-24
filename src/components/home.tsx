@@ -7,7 +7,7 @@ import {
   CV,
   Contact,
 } from "./functions";
-import { ToNotion, saveData, getIP, getTime } from "./notion";
+import { saveData } from "./notion";
 import $ from "jquery";
 
 export function Homepage(): any {
@@ -47,9 +47,6 @@ export function Homepage(): any {
     if (sessionStorage.getItem("accessed") == undefined) {
       sessionStorage.setItem("accessed", `day - ${new Date().getDate()}`);
       saveData();
-      // dataCollection();
-      // getIP();
-      // getTime();
     }
   });
 

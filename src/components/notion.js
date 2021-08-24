@@ -1,35 +1,3 @@
-export async function ToNotion() {
-  var https = require("follow-redirects").https;
-  var fs = require("fs");
-
-  var options = {
-    method: "GET",
-    hostname: "notion-api-teal.vercel.app",
-    path: "/add",
-    headers: {},
-    maxRedirects: 20,
-  };
-
-  var req = https.request(options, function (res) {
-    var chunks = [];
-
-    res.on("data", function (chunk) {
-      chunks.push(chunk);
-    });
-
-    res.on("end", function (chunk) {
-      var body = Buffer.concat(chunks);
-      console.log(body.toString());
-    });
-
-    res.on("error", function (error) {
-      console.error(error);
-    });
-  });
-
-  req.end();
-}
-
 export async function getIP() {
   require("dotenv").config();
   var axios = require("axios");
@@ -47,10 +15,8 @@ export async function getIP() {
       isporg: `${response.data.isp} & ${response.data.organization}`,
       unixtime: response.data.time_zone.current_time_unix,
     };
-    console.log(json);
     return json;
   } catch (error) {
-    console.log("error");
     return "error";
   }
 }
@@ -79,7 +45,7 @@ export async function saveData() {
 
   axios(config)
     .then(function (response) {
-      console.log(JSON.stringify(response.data));
+      // console.log(JSON.stringify(response.data));
     })
     .catch(function (error) {
       console.log(error);

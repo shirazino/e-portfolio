@@ -19,7 +19,7 @@ export function Mywork() {
 
 export function ListProjects() {
   var works = {
-    React: ["HTML Tutor", "HTML Tutor backend", "e-Portfolio"],
+    React: ["HTML Tutor", "HTML Tutor backend", "e-Portfolio", "Frontend SPA"],
     ReactNative: ["Coffi-da reviews app"],
     PHP: ["Games reviews PHP", "PHP Survey"],
     Java: ["Java Movies DB", "Java Aircraft Passenger", "Android Programming"],
@@ -70,11 +70,9 @@ export function ListProjects() {
     );
   });
 
-  // console.log(arr);
-
   return (
     <div>
-      <h1 className="mb-3">My work</h1>
+      <h1 className="">My work</h1>
       <p>
         A lot of my project involve work done with React & React Native built
         with Node JS.
@@ -91,9 +89,9 @@ export function ListProjects() {
       <p className="d-flex flex-wrap flex-row">{arr4}</p>
       <h5>{Object.keys(works)[4]}</h5>
       <p className="d-flex flex-wrap flex-row">{arr5}</p>
-      {/* 
-      
-      
+      {/*
+
+
        */}
     </div>
   );
@@ -111,16 +109,17 @@ export function Skills(): any {
     "PHP",
     "MySQL",
     "Mongo DB",
-    "front-end dev",
-    "back-end dev",
     "jQuery",
     "Bootsrap 5",
     "Processing",
-    "Amazon Web Services",
-    "Google Cloud platform",
+    "test driven development",
+    "full stack programming",
+    "Serverless computing",
+    "AWS",
+    "GCP",
     "Heroku",
     "GitHub Pages",
-    "Serverless computing",
+    "Vercel",
     "IOT",
     "CLI",
     "Git",
@@ -130,7 +129,6 @@ export function Skills(): any {
   ];
 
   var map = skills.map((y, index) => {
-    // map.push("React", 3);
     return (
       <p className="skills" key={index}>
         {y}
@@ -176,7 +174,8 @@ export function CV() {
       <h1>My CV</h1>
       <p className="mx-4">CV can be downloaded at:</p>
       <a
-        href="https://1drv.ms/b/s!AsI4yTso8XAahrR7WudaNCfIWMxEcg?e=W4NGvt"
+        href="https://drive.google.com/file/d/1GID2TcZFgdbpG5fvW7DThoaeaz0bR33r/view?usp=sharing"
+        target="_blank"
         className="justLinks"
       >
         cv.pdf

@@ -54,7 +54,7 @@ a {
 }
 
 svg:hover {
-  fill: var(--lgrbuttons);
+  fill: var(--accent);
 }
 
 /* #sectionR {

@@ -18,7 +18,7 @@ function CheckParams(props: any) {
     case "HTML Tutor":
       return <Container content={HTMLApp()} text={HTMLApp(true)} />;
     case "Notion API":
-      return <Container content={NotionAPI()} />;
+      return <Container content={NotionAPI()} text={NotionAPI(true)} />;
     case "Coffi-da reviews app":
       return <Container content={CoffeeApp()} text={CoffeeApp(true)} />;
     case "HTML Tutor backend":
@@ -38,6 +38,10 @@ function CheckParams(props: any) {
       );
     case "Games reviews PHP":
       return <Container content={PHPFrameworks()} text={PHPFrameworks(true)} />;
+    case "Java Movies DB":
+      return <Container content={JavaMovies()} text={JavaMovies(true)} />;
+    case "Frontend SPA":
+      return <Container content={HedgehogSPA()} text={HedgehogSPA(true)} />;
     default:
       return <Redirect to="/notfound" />;
   }
@@ -364,6 +368,16 @@ function EPortfolio() {
         <li>Bootstrap 5</li>
         <li>Git</li>
       </ul>
+      <p>
+        This website is using Notion's new API to keep a log of public data.
+        <br /> See an example
+        <a
+          className="justLinks"
+          href="https://kashif-js.github.io/e-portfolio/#/e-portfolio/work/Notion%20API"
+        >
+          here
+        </a>
+      </p>
       <a className="justLinks" href="https://github.com/kashif-js/e-portfolio">
         Browse Code
       </a>
@@ -371,14 +385,46 @@ function EPortfolio() {
   );
 }
 
-function NotionAPI() {
+function NotionAPI(bool?: boolean) {
+  function MoreText() {
+    return (
+      <div className="d-flex flex-column my-4">
+        <p>
+          Notion Api is often used in my projects to save data to my blocks that
+          is coming from some websites. <br /> Databases can do this job too,
+          however Notion has more accessibility features, such as mobile app
+          where changes can easily impact web data.
+        </p>
+      </div>
+    );
+  }
+
+  if (bool == true) {
+    return <MoreText />;
+  }
+
+  var width = 365.4;
+  var height = 791.25;
+
   return (
-    <p>
-      Notion Api is often used in my projects to save data to my blocks that is
-      coming from some websites. <br /> Databases can do this job too, however
-      Notion has more accessibility features, such as mobile app where changes
-      can easily impact web data.
-    </p>
+    <div>
+      <div className="d-flex flex-nowrap flex-row">
+        <img
+          className="mx-2"
+          src="https://i.imgur.com/4NlX8YZ.png"
+          alt="notion work"
+          width={width}
+          height={height}
+        />
+        <img
+          className="mx-2"
+          src="https://i.imgur.com/ptdKw2f.png"
+          alt="notion work"
+          width={width}
+          height={height}
+        />
+      </div>
+    </div>
   );
 }
 
@@ -510,8 +556,126 @@ function PHPFrameworks(bool?: boolean) {
   }
   return (
     <div>
-      {" "}
-      <p>hi</p>{" "}
+      <p>screenshots awaiting!</p>
+    </div>
+  );
+}
+
+function JavaMovies(bool?: boolean) {
+  function MoreText() {
+    return (
+      <div className="d-flex flex-column my-4">
+        <p>Outcomes:</p>
+        <ul>Critically analyse and implement Design Patterns</ul>
+        <ul>
+          Create and critically review distributed applications in a suitable
+          language
+        </ul>
+        <ul>
+          Apply knowledge of web services technology to create distributed
+          systems
+        </ul>
+        <ul>
+          Research and demonstrate knowledge and practical application of
+          current and emerging enterprise level technologies
+        </ul>
+        ;
+      </div>
+    );
+  }
+
+  if (bool == true) {
+    return <MoreText />;
+  }
+
+  return (
+    <div>
+      <div className="d-flex flex-row">
+        <img
+          className="me-2"
+          src="https://i.imgur.com/XHK2FjZ.png"
+          alt="Java server pages"
+        />
+        <img
+          className="mx-2"
+          src="https://i.imgur.com/fDHKwch.png"
+          alt="Java server pages"
+        />
+      </div>
+    </div>
+  );
+}
+
+function HedgehogSPA(bool?: boolean) {
+  function MoreText() {
+    return (
+      <div className="d-flex flex-column my-4">
+        <p>
+          Testing my front end skills with{" "}
+          <a className="justLinks" href="https://reqres.in/">
+            reqres.in
+          </a>{" "}
+          API, where tasks included:{" "}
+          <li>
+            authentication with registration, Login & Logout functionality
+          </li>
+          <li>drop API users, add new users, and delete</li>
+          <li>
+            Vanilla CSS used throught the project to create a stylish responsive
+            design for mobile/desktop.
+          </li>
+          <li>
+            local storage to keep track of all data so even on page refresh data
+            is kept
+          </li>
+          <li>complete client side validation</li>
+          <li>
+            Security features are implemented such as Encrypting/decrypting user
+            passwords for extra security with Advanced Encryption Standard AES.
+          </li>
+          <li>resample data with the press of a button</li>
+        </p>
+      </div>
+    );
+  }
+  if (bool == true) {
+    return <MoreText />;
+  }
+  var SPAwork = [
+    "https://i.imgur.com/wV5dFms.png",
+    "https://i.imgur.com/3YPoB5W.png",
+    "https://i.imgur.com/zTkj1US.png",
+    "https://i.imgur.com/jljiNz7.png",
+  ];
+
+  return (
+    <div>
+      <div className="d-flex flex-row">
+        <img
+          className="me-2"
+          src={SPAwork[0]}
+          alt="hedgehog spa images"
+          height="832px"
+        />
+        <img
+          className="mx-2"
+          src={SPAwork[1]}
+          alt="hedgehog spa images"
+          height="832px"
+        />
+        <img
+          className="mx-2"
+          src={SPAwork[2]}
+          alt="hedgehog spa images"
+          height="832px"
+        />
+        <img
+          className="mx-2"
+          src={SPAwork[3]}
+          alt="hedgehog spa images"
+          height="832px"
+        />
+      </div>
     </div>
   );
 }

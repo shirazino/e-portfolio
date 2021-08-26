@@ -64,7 +64,16 @@ function HTMLApp(bool?: boolean) {
   function MoreText() {
     return (
       <div className="d-flex flex-column my-4">
-        <p>Stack Used:</p>
+        <p>
+          This was a last year project made for MMU, where I have successfully
+          completed a dissertation on pedagogy of e-learning teaching platforms.
+          This online platform explores and teaches HTML and frontend to users
+          of any level that can benefit from a "Stack Overflow" community tool
+          that can guide them in the right direction. <br />
+          Designed with popular framework or "user interface library" of my
+          choice React and MongoDB alongside with the feasibility study,
+          dissertation & report. <br /> Stack Used:
+        </p>
         <ul>React </ul>
         <ul>Node JS</ul>
         <ul>moment</ul>
@@ -85,11 +94,16 @@ function HTMLApp(bool?: boolean) {
     );
   }
   var HTML = [
-    "https://i.imgur.com/ik9pKJz.png",
-    "https://i.imgur.com/ImnERLp.png",
-    "https://i.imgur.com/oAYWUHq.png",
-    "https://i.imgur.com/zbewrQ0.png",
-    "https://i.imgur.com/2VaOAWV.png",
+    "https://i.imgur.com/qe5GXWY.png",
+    "https://i.imgur.com/lWkVFTb.png",
+    "https://i.imgur.com/YlG60Iz.png",
+    "https://i.imgur.com/QkyY4Am.png",
+    "https://i.imgur.com/Fnxj0kJ.png",
+    "https://i.imgur.com/Rgpohll.png",
+    "https://i.imgur.com/QQMtldV.png",
+    "https://i.imgur.com/NSKbZR6.png",
+    "https://i.imgur.com/RFC0vOL.png",
+    "https://i.imgur.com/68O94hj.png",
   ];
   if (bool == true) {
     return <MoreText />;
@@ -134,6 +148,41 @@ function HTMLApp(bool?: boolean) {
         <img
           className="mx-4"
           src={HTML[4]}
+          alt="work images"
+          width={width}
+          height={height}
+        />
+        <img
+          className="mx-4"
+          src={HTML[5]}
+          alt="work images"
+          width={width}
+          height={height}
+        />
+        <img
+          className="mx-4"
+          src={HTML[6]}
+          alt="work images"
+          width={width}
+          height={height}
+        />
+        <img
+          className="mx-4"
+          src={HTML[7]}
+          alt="work images"
+          width={width}
+          height={height}
+        />
+        <img
+          className="mx-4"
+          src={HTML[8]}
+          alt="work images"
+          width={width}
+          height={height}
+        />
+        <img
+          className="mx-4"
+          src={HTML[9]}
           alt="work images"
           width={width}
           height={height}

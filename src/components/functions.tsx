@@ -1,4 +1,51 @@
 import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+
+export function Fetch({ notionBlock }: any) {
+  const [notion, setNotion] = useState(null);
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    var axios = require("axios");
+
+    var config = {
+      method: "get",
+      url: `https://notion-api-teal.vercel.app/getblock/${notionBlock}`,
+      headers: {},
+    };
+
+    axios(config)
+      .then(function (response: any) {
+        // console.log(response.data);
+        setNotion(response.data);
+        setLoading(false);
+      })
+      .catch(function (error: string) {
+        // console.log(error);
+        setNotion(error);
+      });
+  }, []);
+
+  const notionValidation = () => {
+    const string1 = notion.results[0].paragraph.text[0].plain_text;
+    const string2 = notion.results[1].paragraph.text[0].plain_text;
+    const string3 = notion.results[2].paragraph.text[0].plain_text;
+    if (notion.status <= 400) {
+      return <p>server error</p>;
+    } else {
+      return (
+        <p>
+          {string1}
+          <br />
+          {string2}
+          <br />
+          {string3}
+        </p>
+      );
+    }
+  };
+
+  return <div>{loading ? <h3>fetching...</h3> : notionValidation()}</div>;
+}
 
 export function Mywork() {
   return (
@@ -74,10 +121,10 @@ export function ListProjects() {
     <div>
       <h1 className="">My work</h1>
       <p>
-        A lot of my project involve work done with React & React Native built
-        with Node JS.
+        Many of my projects are web development websites mostly done with React
+        & Node JS, which involve appropriate industry standard techniques.
         <br />
-        Here I have linked my most successful projects from GitHub.
+        Here I have added my most successful projects from GitHub!
       </p>
       <h5>{Object.keys(works)[0]}</h5>
       <p className="d-flex flex-wrap flex-row">{arr1}</p>
@@ -98,49 +145,116 @@ export function ListProjects() {
 }
 
 export function Skills(): any {
-  var skills: string[] = [
-    "JavaScript",
-    "React JS",
-    "React Native",
-    "Node js",
-    "TypeScript",
-    "Java",
-    "Android",
-    "PHP",
-    "MySQL",
-    "Mongo DB",
-    "jQuery",
-    "Bootsrap 5",
-    "Processing",
-    "test driven development",
-    "full stack programming",
-    "Serverless computing",
-    "AWS",
-    "GCP",
-    "Heroku",
-    "GitHub Pages",
-    "Vercel",
-    "IOT",
-    "CLI",
-    "Git",
-    "API dev Postman",
-    "Trello",
-    "UCD Visual Paradigm",
+  var skillSet = {
+    Web_development: [
+      "JavaScript",
+      "React JS",
+      "TypeScript",
+      "CSS & Animations",
+    ],
+    Languages: ["Java", "Python"],
+    Back_end: [
+      "Node JS",
+      "Express JS",
+      "PHP",
+      "Java Jersey",
+      "API dev Postman",
+      "Serverless computing",
+    ],
+    Mobile: ["React Native", "Android (Java)"],
+    Platforms: ["AWS", "Heroku", "GCP", "Vercel", "GitHub"],
+  };
+  var folder = [
+    skillSet.Web_development,
+    skillSet.Languages,
+    skillSet.Back_end,
+    skillSet.Mobile,
+    skillSet.Platforms,
   ];
 
-  var map = skills.map((y, index) => {
+  // var skills: string[] = [
+  //   "JavaScript",
+  //   "React JS",
+  //   "React Native",
+  //   "Node js",
+  //   "TypeScript",
+  //   "CSS & Animations",
+  //   "Java & Android",
+  //   "PHP",
+  //   "MySQL",
+  //   "Mongo DB",
+  //   "test driven development",
+  //   "full stack programming",
+  //   "Serverless computing",
+  //   "Git",
+  //   "CLI",
+  //   "AWS",
+  //   "GCP",
+  //   "Heroku",
+  //   "API dev Postman",
+  //   "Trello",
+  //   "UCD Visual Paradigm",
+  // ];
+
+  var category = [];
+  for (var x in skillSet) {
+    category.push(x);
+  }
+
+  var arr1 = folder[0].map((x, index) => {
     return (
       <p className="skills" key={index}>
-        {y}
+        {x}
+      </p>
+    );
+  });
+
+  var arr2 = folder[1].map((x, index) => {
+    return (
+      <p className="skills" key={index}>
+        {x}
+      </p>
+    );
+  });
+
+  var arr3 = folder[2].map((x, index) => {
+    return (
+      <p className="skills" key={index}>
+        {x}
+      </p>
+    );
+  });
+
+  var arr4 = folder[3].map((x, index) => {
+    return (
+      <p className="skills" key={index}>
+        {x}
+      </p>
+    );
+  });
+
+  var arr5 = folder[4].map((x, index) => {
+    return (
+      <p className="skills" key={index}>
+        {x}
       </p>
     );
   });
 
   return (
-    <>
+    <div>
       <h1 className="mb-3">My skills</h1>
-      <span className="d-flex flex-wrap flex-row">{map}</span>
-    </>
+      <h5>{category[0]}</h5>
+      <span className="d-flex flex-wrap flex-row">{arr1}</span>
+      <h5>{category[1]}</h5>
+      <span className="d-flex flex-wrap flex-row">{arr2}</span>
+      <h5>{category[2]}</h5>
+      <span className="d-flex flex-wrap flex-row">{arr3}</span>
+      <h5>{category[3]}</h5>
+      <span className="d-flex flex-wrap flex-row">{arr4}</span>
+      <h5>{category[4]}</h5>
+      <span className="d-flex flex-wrap flex-row">{arr5}</span>
+    </div>
   );
 }
 
@@ -153,6 +267,8 @@ export function Education() {
       grade: "completed",
     },
   ];
+
+  var development = ["React with TypeScript", "CSS Animations"];
   var arr = qualifications.map((x, index) => {
     return (
       <p className="mx-4" key={index}>
@@ -160,10 +276,19 @@ export function Education() {
       </p>
     );
   });
+  var arr2 = development.map((y, index) => {
+    return (
+      <p className="mx-4" key={index}>
+        {y}
+      </p>
+    );
+  });
   return (
     <div>
       <h1 className="mb-3">My achievements</h1>
       {arr}
+      <h3>Personal development courses</h3>
+      {arr2}
     </div>
   );
 }
@@ -172,14 +297,16 @@ export function CV() {
   return (
     <div className="mb-3">
       <h1>My CV</h1>
-      <p className="mx-4">CV can be downloaded at:</p>
-      <a
-        href="https://drive.google.com/file/d/1GID2TcZFgdbpG5fvW7DThoaeaz0bR33r/view?usp=sharing"
-        target="_blank"
-        className="justLinks"
-      >
-        cv.pdf
-      </a>
+      <p className="mx-4">
+        CV can be downloaded at:
+        <a
+          href="https://drive.google.com/file/d/1GID2TcZFgdbpG5fvW7DThoaeaz0bR33r/view?usp=sharing"
+          target="_blank"
+          className="justLinks"
+        >
+          cv.pdf
+        </a>
+      </p>
     </div>
   );
 }

@@ -51,3 +51,20 @@ export async function saveData() {
       console.log(error);
     });
 }
+
+// export default function FetchIntro() {
+//   var axios = require("axios");
+//   var config = {
+//     method: "get",
+//     url: "https://notion-api-teal.vercel.app/getblock/914037e1fa8d497c8b153c972eed593e",
+//     headers: {},
+//   };
+
+//   axios(config)
+//     .then(function (response) {
+//       return JSON.stringify(response.data);
+//     })
+//     .catch(function (error) {
+//       return error;
+//     });
+// }

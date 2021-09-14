@@ -6,6 +6,7 @@ import {
   Education,
   CV,
   Contact,
+  Fetch,
 } from "./functions";
 import { saveData } from "./notion";
 import $ from "jquery";
@@ -16,7 +17,7 @@ export function Homepage(): any {
   const [justify, setJustify] = useState("");
   var style = {
     marginTop: window.innerHeight / 2 - 100,
-    marginBottom: window.innerHeight / 2,
+    marginBottom: window.innerHeight / 2 - 100,
   };
 
   useEffect(() => {
@@ -70,17 +71,12 @@ export function Homepage(): any {
           Hi, I'm Kashif Tauseef.
         </h1>
         <div className="mx-4">
-          <p>
-            Full Stack Software Engineer <br />
-            who can build beautiful Node & React apps and much more! <br />
-            Scroll down to check out my work
-          </p>
+          <Fetch notionBlock="914037e1fa8d497c8b153c972eed593e" />
           <img
             className="arrowD"
             src="https://am3pap005files.storage.live.com/y4mgGxeLL4bmrztT9IxBuQuqJfNFPJYSaeCzPno6YZ4ous987GPWy4ATwzQR3l21pd9SnbUuGXjeKtx2LoQh5gVfccLM7OHbqN89iZYGqUiKiraMa93uq6FgiVnNkclE6c12e9r4A8IyJ43tcn3rMLcF6lcjjOtK4YtWyyUAAIYQ9dQ8llGGqmTk3ky_N-ntvxW4VJNDmRA1fpBR5Jr9O8UAw/up-arrow.png?psid=1&width=512&height=512&cropMode=center"
             alt="arrowDown"
             width="100"
-            // height="100"
           />
           <svg
             id="svg"
@@ -90,9 +86,6 @@ export function Homepage(): any {
             fill="currentColor"
             className="bi bi-arrow-down-circle arrow"
             viewBox="0 0 16 16"
-            // onClick={() => {
-            //   boom();
-            // }}
           >
             <path
               fillRule="evenodd"
@@ -115,9 +108,6 @@ export function Homepage(): any {
 
           <Contact auto={justify} />
         </section>
-        {/* <section id="sectionR" className="">
-          <p>section right</p>
-        </section> */}
       </div>
     </div>
   );

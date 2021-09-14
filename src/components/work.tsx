@@ -64,6 +64,7 @@ function HTMLApp(bool?: boolean) {
   function MoreText() {
     return (
       <div className="d-flex flex-column my-4">
+        <h5>About:</h5>
         <p>
           This was a last year project made for MMU, where I have successfully
           completed a dissertation on pedagogy of e-learning teaching platforms.
@@ -72,8 +73,9 @@ function HTMLApp(bool?: boolean) {
           that can guide them in the right direction. <br />
           Designed with popular framework or "user interface library" of my
           choice React and MongoDB alongside with the feasibility study,
-          dissertation & report. <br /> Stack Used:
+          dissertation & report. <br />
         </p>
+        <h5>Stack Used:</h5>
         <ul>React </ul>
         <ul>Node JS</ul>
         <ul>moment</ul>
@@ -105,7 +107,7 @@ function HTMLApp(bool?: boolean) {
     "https://i.imgur.com/RFC0vOL.png",
     "https://i.imgur.com/68O94hj.png",
   ];
-  if (bool == true) {
+  if (bool === true) {
     return <MoreText />;
   }
 
@@ -196,20 +198,25 @@ function HTMLBackend() {
   return (
     <div className="mx-4">
       <p>
-        This is the back-end for the HTML teaching and learning platform. <br />{" "}
-        Built with Node JS{" "}
+        This is the back-end for the
+        <a
+          href="https://kashif-js.github.io/e-portfolio/#/e-portfolio/work/HTML%20Tutor"
+          className="justLinks"
+        >
+          HTML teaching and learning platform.
+        </a>{" "}
+        <br /> Built with Node JS{" "}
       </p>
-      <ul>
-        <li>Node JS</li>
-        <li>Express JS</li>
-        <li>MongoDB</li>
-        <li>Mongoose Object Modeling</li>
-        <li>CORS</li>
-        <li>Body Parser</li>
-        <li>Crypto hashing</li>
-        <li>Nodemon</li>
-        <li>Heroku</li>
-      </ul>
+      <h5>Stack used:</h5>
+      <li>Node JS</li>
+      <li>Express JS</li>
+      <li>MongoDB</li>
+      <li>Mongoose Object Modeling</li>
+      <li>CORS</li>
+      <li>Body Parser</li>
+      <li>Crypto hashing</li>
+      <li>Nodemon</li>
+      <li>Heroku</li>
       <a
         href="https://github.com/kashif-js/nodejs-server"
         className="justLinks"
@@ -224,7 +231,24 @@ function CoffeeApp(bool?: boolean) {
   function MoreText() {
     return (
       <div className="d-flex flex-column my-4">
-        <p>Stack Used:</p>
+        <h5>Outcomes </h5>
+        <ul>
+          {" "}
+          Develop and use a variety of advanced mobile applications and location
+          aware mobile development technologies, operating systems and
+          environments.
+        </ul>
+        <ul>
+          Research and demonstrate knowledge and practical application of
+          current and novel mobile device techniques
+        </ul>
+        <ul>
+          {" "}
+          Demonstrate knowledge and apply software development methodologies
+          that are relevant to industry today
+        </ul>
+
+        <h5>Stack Used:</h5>
         <ul>React Native</ul>
         <ul>Node JS</ul>
         <ul>Android</ul>
@@ -252,7 +276,7 @@ function CoffeeApp(bool?: boolean) {
     "https://raw.githubusercontent.com/kashif-js/ReactNativeApp-CoffiDa/master/media/settings.png",
   ];
 
-  if (bool == true) {
+  if (bool === true) {
     return <MoreText />;
   }
 
@@ -349,7 +373,7 @@ function OddOneOutGame(bool?: boolean) {
   // var width = 780;
   // var height = 844;
 
-  if (bool == true) {
+  if (bool === true) {
     return <MoreText />;
   }
 
@@ -448,7 +472,7 @@ function NotionAPI(bool?: boolean) {
     );
   }
 
-  if (bool == true) {
+  if (bool === true) {
     return <MoreText />;
   }
 
@@ -516,41 +540,36 @@ function PHPFocusedAssessment(bool?: boolean) {
   function MoreText() {
     return (
       <div className="d-flex flex-column my-4">
-        <p>
-          Outcomes :
-          <ul className="mt-2">
-            Deploy client-side JavaScript libraries to add dynamic functionality
-            within a web page
-          </ul>
-          <ul>
-            Use open-source tools and technologies to develop object-oriented
-            and reusable server-side scripts that obtain, validate, process and
-            store user input from web pages
-          </ul>
-          <ul>
-            Integrate client-side and server-side coding into coherent web
-            applications
-          </ul>
-          <ul>
-            Manage communication sessions to authorise users and perpetuate
-            their data across multiple pages.
-          </ul>
-          stack used:
-          <ul className="mt-2">PHP 7</ul>
-          <ul>HTML</ul>
-          <ul>CSS</ul>
-          <ul>MySQL</ul>
-          <a
-            className="justLinks"
-            href="https://github.com/kashif-js/SurveyPHP"
-          >
-            browse code
-          </a>
-        </p>
+        <h5>Outcomes :</h5>
+        <ul className="mt-2">
+          Deploy client-side JavaScript libraries to add dynamic functionality
+          within a web page
+        </ul>
+        <ul>
+          Use open-source tools and technologies to develop object-oriented and
+          reusable server-side scripts that obtain, validate, process and store
+          user input from web pages
+        </ul>
+        <ul>
+          Integrate client-side and server-side coding into coherent web
+          applications
+        </ul>
+        <ul>
+          Manage communication sessions to authorise users and perpetuate their
+          data across multiple pages.
+        </ul>
+        <h5>stack used:</h5>
+        <ul className="mt-2">PHP 7</ul>
+        <ul>HTML</ul>
+        <ul>CSS</ul>
+        <ul>MySQL</ul>
+        <a className="justLinks" href="https://github.com/kashif-js/SurveyPHP">
+          browse code
+        </a>
       </div>
     );
   }
-  if (bool == true) {
+  if (bool === true) {
     return <MoreText />;
   }
   var PHPwork = [
@@ -586,21 +605,22 @@ function PHPFrameworks(bool?: boolean) {
   function MoreText() {
     return (
       <div>
-        <p>Outcomes:</p>
+        <h5>Outcomes:</h5>
         <ul>Front–end Design</ul>
         <ul>Structure and Scalability</ul>
         <ul>Interactivity</ul>
         <ul>Client-server Networking</ul>
         <ul>Code Structure and Quality</ul>
-        <p>stack used:</p>
-        <ul>MVC framework</ul>
-        <ul>CodeIgniter</ul>
+        <h5>stack used:</h5>
         <ul>PHP</ul>
+        <ul>CodeIgniter</ul>
+        <ul>MVC framework</ul>
         <ul>JavaScript</ul>
+        <ul>MySQL</ul>
       </div>
     );
   }
-  if (bool == true) {
+  if (bool === true) {
     return <MoreText />;
   }
   return (
@@ -633,7 +653,7 @@ function JavaMovies(bool?: boolean) {
     );
   }
 
-  if (bool == true) {
+  if (bool === true) {
     return <MoreText />;
   }
 
@@ -687,7 +707,7 @@ function HedgehogSPA(bool?: boolean) {
       </div>
     );
   }
-  if (bool == true) {
+  if (bool === true) {
     return <MoreText />;
   }
   var SPAwork = [

@@ -26,25 +26,34 @@ export function Fetch({ notionBlock }: any) {
   }, []);
 
   const notionValidation = () => {
-    const string1 = notion.results[0].paragraph.text[0].plain_text;
-    const string2 = notion.results[1].paragraph.text[0].plain_text;
-    const string3 = notion.results[2].paragraph.text[0].plain_text;
     if (notion.status <= 400) {
       return <p>server error</p>;
     } else {
-      return (
-        <p>
-          {string1}
-          <br />
-          {string2}
-          <br />
-          {string3}
-        </p>
-      );
+      var results = notion.results.map((res: any, index: number) => {
+        return (
+          <p key={index}>
+            {res.paragraph.text[0].plain_text}
+            <br />
+          </p>
+        );
+      });
+      return <div>{results}</div>;
     }
   };
 
-  return <div>{loading ? <h3>fetching...</h3> : notionValidation()}</div>;
+  const fancySkeletonLoad = () => {
+    return (
+      <div>
+        <div className="skeleton appearance"></div>
+        <div className="skeleton appearance">
+          <p className="skeletonTxt">fetching from Notion..</p>
+        </div>
+        <div className="skeleton appearance"></div>
+      </div>
+    );
+  };
+
+  return <div>{loading ? fancySkeletonLoad() : notionValidation()}</div>;
 }
 
 export function Mywork() {
@@ -66,19 +75,20 @@ export function Mywork() {
 
 export function ListProjects() {
   var works = {
-    React: ["HTML Tutor", "HTML Tutor backend", "e-Portfolio", "Frontend SPA"],
-    ReactNative: ["Coffi-da reviews app"],
+    React: ["HTML Tutor", , "e-Portfolio", "Frontend SPA"],
+    React_Native: ["Coffi-da reviews app"],
+
+    Back_end: ["HTML Tutor backend", "Notion API", "Java Movies DB"],
     PHP: ["Games reviews PHP", "PHP Survey"],
-    Java: ["Java Movies DB", "Java Aircraft Passenger", "Android Programming"],
-    other: ["Notion API", "Local Mosque IOT", "Out Of The Loop game"],
+    JavaScript: ["Local Mosque IOT", "Out Of The Loop game"],
   };
 
   var folder = [
     works.React,
-    works.ReactNative,
+    works.React_Native,
+    works.Back_end,
     works.PHP,
-    works.Java,
-    works.other,
+    works.JavaScript,
   ];
 
   var arr1 = folder[0].map((x, index) => {
@@ -118,8 +128,8 @@ export function ListProjects() {
   });
 
   return (
-    <div>
-      <h1 className="">My work</h1>
+    <div className="coolBorders">
+      <h1 className="h1Title">Work</h1>
       <p>
         Many of my projects are web development websites mostly done with React
         & Node JS, which involve appropriate industry standard techniques.
@@ -128,7 +138,7 @@ export function ListProjects() {
       </p>
       <h5>{Object.keys(works)[0]}</h5>
       <p className="d-flex flex-wrap flex-row">{arr1}</p>
-      <h5>{Object.keys(works)[1].replace("t", "t ")}</h5>
+      <h5>{Object.keys(works)[1]}</h5>
       <p className="d-flex flex-wrap flex-row">{arr2}</p>
       <h5>{Object.keys(works)[2]}</h5>
       <p className="d-flex flex-wrap flex-row">{arr3}</p>
@@ -140,6 +150,7 @@ export function ListProjects() {
 
 
        */}
+      <Mywork />
     </div>
   );
 }
@@ -158,8 +169,8 @@ export function Skills(): any {
       "Express JS",
       "PHP",
       "Java Jersey",
-      "API dev Postman",
-      "Serverless computing",
+      "MySQL",
+      "Mongo DB",
     ],
     Mobile: ["React Native", "Android (Java)"],
     Platforms: ["AWS", "Heroku", "GCP", "Vercel", "GitHub"],
@@ -171,30 +182,6 @@ export function Skills(): any {
     skillSet.Mobile,
     skillSet.Platforms,
   ];
-
-  // var skills: string[] = [
-  //   "JavaScript",
-  //   "React JS",
-  //   "React Native",
-  //   "Node js",
-  //   "TypeScript",
-  //   "CSS & Animations",
-  //   "Java & Android",
-  //   "PHP",
-  //   "MySQL",
-  //   "Mongo DB",
-  //   "test driven development",
-  //   "full stack programming",
-  //   "Serverless computing",
-  //   "Git",
-  //   "CLI",
-  //   "AWS",
-  //   "GCP",
-  //   "Heroku",
-  //   "API dev Postman",
-  //   "Trello",
-  //   "UCD Visual Paradigm",
-  // ];
 
   var category = [];
   for (var x in skillSet) {
@@ -242,8 +229,8 @@ export function Skills(): any {
   });
 
   return (
-    <div>
-      <h1 className="mb-3">My skills</h1>
+    <div className="coolBorders">
+      <h1 className="mb-3 h1Title">Technical Skills</h1>
       <h5>{category[0]}</h5>
       <span className="d-flex flex-wrap flex-row">{arr1}</span>
       <h5>{category[1]}</h5>
@@ -260,19 +247,33 @@ export function Skills(): any {
 
 export function Education() {
   var qualifications = [
-    { title: "BSC Software Engineering", grade: "First Class Honours" },
-    { title: "HNC Computing", grade: "Distinction" },
     {
-      title: "Access to Computing & ICT",
-      grade: "completed",
+      title: "BSC Software Engineering",
+      grade: "First Class Honours 🎓",
+      uni: "Manchester Metropolitan University",
+    },
+    {
+      title: "HNC Computing",
+      grade: "Distinction",
+      uni: "Salford City College",
+    },
+    {
+      title: "L3 Computing & ICT",
+      grade: "Pass",
+      uni: "Salford City College",
     },
   ];
 
-  var development = ["React with TypeScript", "CSS Animations"];
+  var development = [
+    "React with TypeScript",
+    "CSS Animations",
+    "Django x Python",
+  ];
   var arr = qualifications.map((x, index) => {
     return (
       <p className="mx-4" key={index}>
-        {x.title} - {x.grade}
+        {x.title} - {x.grade} <br />{" "}
+        <span className="uniFontcolor">{x.uni}</span>
       </p>
     );
   });
@@ -284,10 +285,10 @@ export function Education() {
     );
   });
   return (
-    <div>
-      <h1 className="mb-3">My achievements</h1>
+    <div className="coolBorders">
+      <h1 className="mb-3 h1Title">Achievements</h1>
       {arr}
-      <h3>Personal development courses</h3>
+      <h3 className="h1Title">Personal learning</h3>
       {arr2}
     </div>
   );
@@ -295,8 +296,8 @@ export function Education() {
 
 export function CV() {
   return (
-    <div className="mb-3">
-      <h1>My CV</h1>
+    <div className="coolBorders">
+      <h1 className="h1Title">CV</h1>
       <p className="mx-4">
         CV can be downloaded at:
         <a
@@ -313,10 +314,10 @@ export function CV() {
 
 export function Contact({ auto }: any) {
   return (
-    <div className="mb-3">
-      <h1 className="mb-3">Contact</h1>
+    <div className="mb-3 coolBorders">
+      <h1 className="mb-3 h1Title">Contact</h1>
       <p className="mx-4 ">You can contact me at: </p>
-      <div className={`d-flex flex-row ${auto} my-4 mb-5`}>
+      <div className={`d-flex flex-row ${auto} my-4 mx-3`}>
         <p>
           <a href="mailto:kashiftauseef@gmail.com" className="contactLinks">
             <svg

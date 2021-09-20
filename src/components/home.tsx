@@ -10,6 +10,9 @@ import {
 } from "./functions";
 import { saveData } from "./notion";
 import $ from "jquery";
+import ThemeSelector, { DynamicImg } from "./theme";
+import arrowW from "../media/arrowW.png";
+import arrowB from "../media/arrowB.png";
 
 export function Homepage(): any {
   const [fontSize, setFontSize] = useState({});
@@ -23,16 +26,16 @@ export function Homepage(): any {
   useEffect(() => {
     function handleResize() {
       if (window.innerWidth < 420) {
-        setWindowSize({ width: 320 });
+        // setWindowSize({ width: 320 });
         setFontSize({ fontSize: 30 });
         setJustify("justify-content-evenly");
         $("#svg").hide();
-        $(".arrowD").show();
+        $("#arrowD").show();
       } else {
-        setWindowSize({ width: 700 });
-        setFontSize({ fontSize: 50 });
+        // setWindowSize({ width: 700 });
+        setFontSize({ fontSize: 40 });
         setJustify("justify-content-start");
-        $(".arrowD").hide();
+        $("#arrowD").hide();
         $("#svg").show();
       }
     }
@@ -62,22 +65,21 @@ export function Homepage(): any {
 
   return (
     <div>
+      <ThemeSelector visibility={true} />
       <div
         style={style}
         className="d-flex flex-column align-items-center intro"
       >
-        {/* style={adjustName} */}
         <h1 className="name mb-4" style={fontSize}>
           Hi, I'm Kashif Tauseef.
         </h1>
         <div className="mx-4">
           <Fetch notionBlock="914037e1fa8d497c8b153c972eed593e" />
-          <img
-            className="arrowD"
-            src="https://am3pap005files.storage.live.com/y4mgGxeLL4bmrztT9IxBuQuqJfNFPJYSaeCzPno6YZ4ous987GPWy4ATwzQR3l21pd9SnbUuGXjeKtx2LoQh5gVfccLM7OHbqN89iZYGqUiKiraMa93uq6FgiVnNkclE6c12e9r4A8IyJ43tcn3rMLcF6lcjjOtK4YtWyyUAAIYQ9dQ8llGGqmTk3ky_N-ntvxW4VJNDmRA1fpBR5Jr9O8UAw/up-arrow.png?psid=1&width=512&height=512&cropMode=center"
-            alt="arrowDown"
-            width="100"
-          />
+          {/* <img id="arrowD" src={arrowB} alt="arrowDown" /> */}
+          <div id="arrowD">
+            <DynamicImg />
+          </div>
+
           <svg
             id="svg"
             xmlns="http://www.w3.org/2000/svg"
@@ -97,8 +99,6 @@ export function Homepage(): any {
       <div className="d-flex flex-row justify-content-around">
         <section id="sectionL" style={windowSize}>
           <ListProjects />
-
-          <Mywork />
 
           <Skills />
 

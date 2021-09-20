@@ -1,17 +1,20 @@
 :root {
-  --background: #2d2d2d;
+  --background: #202124;
   --lgrbuttons: #f48024;
-  --btnPadding: 15px;
+  --btnPadding: 10px;
   --accent: #5e9eff;
   --font: white;
+  --accentFont: #cfd2d6;
   --links: black;
   --radius: 15px;
   --border: 3px;
+  --marginR: 5px;
+  --marginL: 5px;
 }
 
 body {
   background-color: var(--background);
-  background-image: url("/src/media/stars.png");
+  /* background-image: url("/src/media/stars.png"); */
 }
 h1,
 h2,
@@ -23,9 +26,19 @@ p,
 ul,
 li,
 pre,
+img,
 a {
   color: var(--font);
+  /* font-family: "Quicksand", sans-serif; */
   font-family: "JetBrains Mono", monospace;
+}
+
+.uniFontcolor {
+  color: var(--accentFont);
+}
+
+.h1Title {
+  color: var(--accentFont);
 }
 
 pre {
@@ -47,41 +60,22 @@ pre {
 }
 
 #sectionL {
-  width: 60%;
+  width: 700px;
   margin-left: 20px;
   margin-right: 20px;
 }
 
 .contactLinks {
-  background-color: inherit;
   padding: var(--btnPadding);
-  border-style: solid;
-  border-color: var(--accent);
+  border-style: none;
 }
 
 svg:hover {
   fill: var(--accent);
 }
 
-/* #sectionR {
-  background-color: rgb(155, 57, 57);
-  width: 20%;
-} */
-
-.btns,
-a {
-  color: var(--font);
-  padding: var(--btnPadding);
-  margin-right: 10px;
-  margin-left: 10px;
-  margin-bottom: 10px;
-  border-radius: var(--radius);
-  border-style: solid;
-  border-color: var(--lgrbuttons);
-  border-width: var(--border);
-  text-decoration: none;
-  text-decoration: underline;
-  /* background-color: var(--lgrbuttons); */
+svg {
+  fill: var(--accent);
 }
 
 a:hover {
@@ -89,6 +83,11 @@ a:hover {
   text-decoration: none;
   text-transform: uppercase;
   font-style: italic;
+}
+
+.tb-Margins {
+  margin-top: 30px !important;
+  margin-bottom: 30px !important;
 }
 
 .nav {
@@ -106,10 +105,26 @@ a:hover {
   text-decoration: underline;
 }
 
-.skills {
-  margin-left: 5px;
-  margin-right: 5px;
+.btns,
+a {
+  color: var(--font);
   padding: var(--btnPadding);
+  margin-right: var(--marginR);
+  margin-left: var(--marginL);
+  margin-bottom: 10px;
+  border-radius: var(--radius);
+  border-style: solid;
+  border-color: var(--lgrbuttons);
+  border-width: var(--border);
+  text-decoration: none;
+  text-decoration: underline;
+  /* background-color: var(--lgrbuttons); */
+}
+
+.skills {
+  padding: var(--btnPadding);
+  margin-left: var(--marginL);
+  margin-right: var(--marginR);
   padding-top: 10px;
   padding-bottom: 10px;
   border-width: var(--border);
@@ -136,11 +151,27 @@ a:hover {
 
 #about {
   margin: auto;
-  width: 70%;
+  width: 50%;
 }
 
-@media only screen and (max-width: 400px) {
+.theme {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background-color: var(--accent);
+  width: 180px;
+}
+
+.themeDiv {
+  position: absolute;
+  right: 20px;
+  top: 0;
+}
+
+@media only screen and (max-width: 700px) {
   #carousel {
+    width: 90%;
+  }
+  #sectionL {
     width: 90%;
   }
   #about {

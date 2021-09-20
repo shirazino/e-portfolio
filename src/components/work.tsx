@@ -1,12 +1,14 @@
 import React from "react";
 import { RouteComponentProps } from "react-router";
 import { Redirect } from "react-router-dom";
+import ThemeSelector from "./theme";
 
 interface Props extends RouteComponentProps<{ name: string }> {}
 
 export const Work: React.FC<Props> = ({ match }) => {
   return (
     <div id="main">
+      <ThemeSelector visibility={false} />
       <h1 className="workTitle">{match.params.name}</h1>
       {CheckParams(match.params.name)}
     </div>
@@ -22,13 +24,13 @@ function CheckParams(props: any) {
     case "Coffi-da reviews app":
       return <Container content={CoffeeApp()} text={CoffeeApp(true)} />;
     case "HTML Tutor backend":
-      return <Container content={HTMLBackend()} />;
+      return <Container content={HTMLBackend()} text={HTMLBackend(true)} />;
     case "Local Mosque IOT":
       return <Container content={LocalMosque()} />;
     case "Out Of The Loop game":
       return <Container content={OddOneOutGame()} text={OddOneOutGame(true)} />;
     case "e-Portfolio":
-      return <Container content={EPortfolio()} />;
+      return <Container content={EPortfolio()} text={EPortfolio(true)} />;
     case "PHP Survey":
       return (
         <Container
@@ -48,14 +50,14 @@ function CheckParams(props: any) {
 }
 
 function Container(props: any) {
-  // console.log(props);
-
   return (
     <div>
       <div id="carousel" className="">
         {props.content}
       </div>
-      <div id="about">{props.text}</div>
+      <div id="about" className="coolBorders tb-Margins">
+        {props.text}
+      </div>
     </div>
   );
 }
@@ -63,7 +65,7 @@ function Container(props: any) {
 function HTMLApp(bool?: boolean) {
   function MoreText() {
     return (
-      <div className="d-flex flex-column my-4">
+      <div className="d-flex flex-column">
         <h5>About:</h5>
         <p>
           This was a last year project made for MMU, where I have successfully
@@ -194,43 +196,50 @@ function HTMLApp(bool?: boolean) {
   );
 }
 
-function HTMLBackend() {
-  return (
-    <div className="mx-4">
-      <p>
-        This is the back-end for the
+function HTMLBackend(bool?: boolean) {
+  if (bool === true) {
+    return <MoreText />;
+  }
+
+  function MoreText() {
+    return (
+      <div className="mx-4">
+        <p>
+          This is the back-end for the
+          <a
+            href="https://kashif-js.github.io/e-portfolio/#/e-portfolio/work/HTML%20Tutor"
+            className="justLinks"
+          >
+            HTML teaching and learning platform.
+          </a>{" "}
+          <br /> Built with Node JS{" "}
+        </p>
+        <h5>Stack used:</h5>
+        <li>Node JS</li>
+        <li>Express JS</li>
+        <li>MongoDB</li>
+        <li>Mongoose Object Modeling</li>
+        <li>CORS</li>
+        <li>Body Parser</li>
+        <li>Crypto hashing</li>
+        <li>Nodemon</li>
+        <li>Heroku</li>
         <a
-          href="https://kashif-js.github.io/e-portfolio/#/e-portfolio/work/HTML%20Tutor"
+          href="https://github.com/kashif-js/nodejs-server"
           className="justLinks"
         >
-          HTML teaching and learning platform.
-        </a>{" "}
-        <br /> Built with Node JS{" "}
-      </p>
-      <h5>Stack used:</h5>
-      <li>Node JS</li>
-      <li>Express JS</li>
-      <li>MongoDB</li>
-      <li>Mongoose Object Modeling</li>
-      <li>CORS</li>
-      <li>Body Parser</li>
-      <li>Crypto hashing</li>
-      <li>Nodemon</li>
-      <li>Heroku</li>
-      <a
-        href="https://github.com/kashif-js/nodejs-server"
-        className="justLinks"
-      >
-        browse code
-      </a>
-    </div>
-  );
+          browse code
+        </a>
+      </div>
+    );
+  }
+  return <div>hi</div>;
 }
 
 function CoffeeApp(bool?: boolean) {
   function MoreText() {
     return (
-      <div className="d-flex flex-column my-4">
+      <div className="d-flex flex-column">
         <h5>Outcomes </h5>
         <ul>
           {" "}
@@ -334,7 +343,7 @@ function CoffeeApp(bool?: boolean) {
 function OddOneOutGame(bool?: boolean) {
   function MoreText() {
     return (
-      <div className="d-flex flex-column my-4">
+      <div className="d-flex flex-column">
         <p>
           One of my earliest work I did using JavaScript, which was a team
           building game where you get to know names and more about your team.{" "}
@@ -427,41 +436,50 @@ function OddOneOutGame(bool?: boolean) {
   );
 }
 
-function EPortfolio() {
-  return (
-    <div>
-      <p>This actual website was developed to showcase my work.</p>
-      <p>Stack used:</p>
-      <ul>
-        <li>React</li>
-        <li>Node JS</li>
-        <li>TypeScript</li>
-        <li>JavaScript</li>
-        <li>Notion API</li>
-        <li>Bootstrap 5</li>
-        <li>Git</li>
-      </ul>
-      <p>
-        This website is using Notion's new API to keep a log of public data.
-        <br /> See an example
+function EPortfolio(bool?: boolean) {
+  if (bool === true) {
+    return <MoreText />;
+  }
+  function MoreText() {
+    return (
+      <div>
+        <p>This actual website was developed to showcase my work.</p>
+        <p>Stack used:</p>
+        <ul>
+          <li>React</li>
+          <li>Node JS</li>
+          <li>TypeScript</li>
+          <li>JavaScript</li>
+          <li>Notion API</li>
+          <li>Bootstrap 5</li>
+          <li>Git</li>
+        </ul>
+        <p>
+          This website is using Notion's new API to keep a log of public data.
+          <br /> See an example
+          <a
+            className="justLinks"
+            href="https://kashif-js.github.io/e-portfolio/#/e-portfolio/work/Notion%20API"
+          >
+            here
+          </a>
+        </p>
         <a
           className="justLinks"
-          href="https://kashif-js.github.io/e-portfolio/#/e-portfolio/work/Notion%20API"
+          href="https://github.com/kashif-js/e-portfolio"
         >
-          here
+          Browse Code
         </a>
-      </p>
-      <a className="justLinks" href="https://github.com/kashif-js/e-portfolio">
-        Browse Code
-      </a>
-    </div>
-  );
+      </div>
+    );
+  }
+  return <div></div>;
 }
 
 function NotionAPI(bool?: boolean) {
   function MoreText() {
     return (
-      <div className="d-flex flex-column my-4">
+      <div className="d-flex flex-column">
         <p>
           Notion Api is often used in my projects to save data to my blocks that
           is coming from some websites. <br /> Databases can do this job too,
@@ -539,7 +557,7 @@ function LocalMosque() {
 function PHPFocusedAssessment(bool?: boolean) {
   function MoreText() {
     return (
-      <div className="d-flex flex-column my-4">
+      <div className="d-flex flex-column">
         <h5>Outcomes :</h5>
         <ul className="mt-2">
           Deploy client-side JavaScript libraries to add dynamic functionality
@@ -633,7 +651,7 @@ function PHPFrameworks(bool?: boolean) {
 function JavaMovies(bool?: boolean) {
   function MoreText() {
     return (
-      <div className="d-flex flex-column my-4">
+      <div className="d-flex flex-column">
         <p>Outcomes:</p>
         <ul>Critically analyse and implement Design Patterns</ul>
         <ul>
@@ -678,7 +696,7 @@ function JavaMovies(bool?: boolean) {
 function HedgehogSPA(bool?: boolean) {
   function MoreText() {
     return (
-      <div className="d-flex flex-column my-4">
+      <div className="d-flex flex-column">
         <p>
           Testing my front end skills with{" "}
           <a className="justLinks" href="https://reqres.in/">

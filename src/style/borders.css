@@ -1,8 +1,9 @@
 :root {
-  --borderColor: #303134;
+  --borderColor: rgba(48, 49, 52, 0.7);
 }
 
 .coolBorders {
+  /* opacity: ; */
   border-radius: 7px;
   margin-bottom: 20px;
   padding: 10px;

@@ -1,6 +1,6 @@
-import "./App.css";
-import "./skeletonLoading.css";
-import "./borders.css";
+import "./style/App.css";
+import "./style/skeletonLoading.css";
+import "./style/borders.css";
 
 import { Homepage } from "./components/home";
 import { Work } from "./components/work";

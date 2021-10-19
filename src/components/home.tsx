@@ -11,8 +11,6 @@ import {
 import { saveData } from "./notion";
 import $ from "jquery";
 import ThemeSelector, { DynamicImg } from "./theme";
-import arrowW from "../media/arrowW.png";
-import arrowB from "../media/arrowB.png";
 
 export function Homepage(): any {
   const [fontSize, setFontSize] = useState({});

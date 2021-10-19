@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import arrowW from "../media/arrowW.png";
 import arrowB from "../media/arrowB.png";
+import background from "../media/stars.png";
 
 export default function ThemeSelector({ visibility }) {
   return <AdjustTheme visibility={visibility} />;
@@ -31,15 +32,23 @@ export function DynamicImg() {
 const setDark = () => {
   document.documentElement.style.setProperty("--font", "#FFFFFF");
   document.documentElement.style.setProperty("--background", "#202124");
-  document.documentElement.style.setProperty("--borderColor", "#303134");
+  document.documentElement.style.setProperty(
+    "--borderColor",
+    "rgba(48, 49, 52, 0.6)"
+  );
   document.documentElement.style.setProperty("--accentFont", "#cfd2d6");
+  document.body.style.backgroundImage = `url(${background})`;
 };
 
 const setLight = () => {
   document.documentElement.style.setProperty("--font", "#000000");
   document.documentElement.style.setProperty("--background", "#F3F2EF");
-  document.documentElement.style.setProperty("--borderColor", "#FFFFFF");
+  document.documentElement.style.setProperty(
+    "--borderColor",
+    "#rgba(255,255,255, 0.6)"
+  );
   document.documentElement.style.setProperty("--accentFont", "black");
+  document.body.style.backgroundImage = `none`;
 };
 
 export function AdjustTheme({ visibility }) {

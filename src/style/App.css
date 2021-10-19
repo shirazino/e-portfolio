@@ -14,7 +14,6 @@
 
 body {
   background-color: var(--background);
-  /* background-image: url("/src/media/stars.png"); */
 }
 h1,
 h2,
@@ -116,7 +115,7 @@ a {
   border-style: solid;
   border-color: var(--lgrbuttons);
   border-width: var(--border);
-  text-decoration: none;
+  /* text-decoration: ; */
   text-decoration: underline;
   /* background-color: var(--lgrbuttons); */
 }

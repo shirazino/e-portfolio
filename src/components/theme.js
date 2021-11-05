@@ -1,7 +1,6 @@
-import React from "react";
 import { useState, useEffect } from "react";
-import arrowW from "../media/arrowW.png";
-import arrowB from "../media/arrowB.png";
+import white from "../media/whitearrow.png";
+import black from "../media/blackarrow.png";
 import background from "../media/stars.png";
 
 export default function ThemeSelector({ visibility }) {
@@ -9,7 +8,7 @@ export default function ThemeSelector({ visibility }) {
 }
 
 export function DynamicImg() {
-  const [source, setSource] = useState(arrowW);
+  const [source, setSource] = useState(white);
   const [update, setUpdate] = useState(false);
   useEffect(() => {
     if (
@@ -17,16 +16,25 @@ export function DynamicImg() {
       localStorage.getItem("theme") !== null
     ) {
       if (localStorage.getItem("theme") === "light") {
-        setSource(arrowW);
-      } else {
-        setSource(arrowB);
+        setSource(black);
+      } else if (localStorage.getItem("theme") === "dark") {
+        setSource(white);
       }
     } else {
-      setSource(arrowB);
+      setSource(black);
     }
-  }, [update]);
+  }, []);
 
-  return <img src={source} key={source} alt="arrow" />;
+  return (
+    <div
+      style={{
+        backgroundImage: `url(${source})`,
+        width: "100px",
+        height: "200px",
+        backgroundRepeat: "no-repeat",
+      }}
+    ></div>
+  );
 }
 
 const setDark = () => {
@@ -36,7 +44,7 @@ const setDark = () => {
     "--borderColor",
     "rgba(48, 49, 52, 0.6)"
   );
-  document.documentElement.style.setProperty("--accentFont", "#cfd2d6");
+  document.documentElement.style.setProperty("--accentFont", "#aaaaaa");
   document.body.style.backgroundImage = `url(${background})`;
 };
 

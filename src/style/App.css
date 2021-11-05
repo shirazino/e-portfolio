@@ -4,7 +4,7 @@
   --btnPadding: 10px;
   --accent: #5e9eff;
   --font: white;
-  --accentFont: #cfd2d6;
+  --accentFont: #aaaaaa;
   --links: black;
   --radius: 15px;
   --border: 3px;
@@ -26,7 +26,8 @@ ul,
 li,
 pre,
 img,
-a {
+a,
+.fetch {
   color: var(--font);
   /* font-family: "Quicksand", sans-serif; */
   font-family: "JetBrains Mono", monospace;
@@ -34,10 +35,11 @@ a {
 
 .uniFontcolor {
   color: var(--accentFont);
+  font-weight: bold;
 }
 
 .h1Title {
-  color: var(--accentFont);
+  color: var(--font);
 }
 
 pre {
@@ -45,6 +47,7 @@ pre {
 }
 
 .name {
+  color: var(--font);
   font-family: "Cedarville Cursive", cursive;
   font-size: 30px;
 }

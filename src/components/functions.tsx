@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-
-export function Fetch({ notionBlock }: any) {
+interface props {
+  notionBlock: string;
+  loop?: number;
+}
+export function Fetch({ notionBlock, loop }: props) {
   const [notion, setNotion] = useState(null);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
@@ -31,27 +34,48 @@ export function Fetch({ notionBlock }: any) {
     } else {
       var results = notion.results.map((res: any, index: number) => {
         return (
-          <p key={index}>
+          <div key={index}>
             {res.paragraph.text[0].plain_text}
             <br />
-          </p>
+          </div>
         );
       });
       return <div>{results}</div>;
     }
   };
 
-  const fancySkeletonLoad = () => {
-    return (
-      <div>
-        <div className="skeleton appearance"></div>
-        <div className="skeleton appearance">
-          <p className="skeletonTxt">fetching from Notion..</p>
-        </div>
-        <div className="skeleton appearance"></div>
-      </div>
-    );
-  };
+  function fancySkeletonLoad() {
+    switch (loop) {
+      case 1:
+        return (
+          <div>
+            <div className="skeleton appearance">
+              <p className="skeletonTxt">Fetching from notion...</p>
+            </div>
+          </div>
+        );
+
+      case 3:
+        return (
+          <div>
+            <div className="skeleton appearance"></div>
+            <div className="skeleton appearance">
+              <p className="skeletonTxt">Fetching from notion...</p>
+            </div>
+            <div className="skeleton appearance"></div>
+          </div>
+        );
+
+      default:
+        return (
+          <div>
+            <div className="skeleton appearance">
+              <p className="skeletonTxt">Fetching from notion...</p>
+            </div>
+          </div>
+        );
+    }
+  }
 
   return <div>{loading ? fancySkeletonLoad() : notionValidation()}</div>;
 }
@@ -75,7 +99,12 @@ export function Mywork() {
 
 export function ListProjects() {
   var works = {
-    React: ["HTML Tutor", , "e-Portfolio", "Frontend SPA"],
+    React: [
+      "HTML Tutor",
+      "e-Portfolio",
+      "Tasks-Calendar webapp",
+      "Frontend SPA",
+    ],
     React_Native: ["Coffi-da reviews app"],
 
     Back_end: ["HTML Tutor backend", "Notion API", "Java Movies DB"],
@@ -152,7 +181,7 @@ export function ListProjects() {
   );
 }
 
-export function Skills(): any {
+export function Skills() {
   var skillSet = {
     Web_development: [
       "JavaScript",
@@ -251,18 +280,19 @@ export function Education() {
     },
     {
       title: "HNC Computing",
-      grade: "Distinction",
+      grade: "Distinction 🎓",
       uni: "Salford City College",
     },
     {
       title: "L3 Computing & ICT",
-      grade: "Pass",
+      grade: "Pass ✔️",
       uni: "Salford City College",
     },
   ];
 
   var development = [
     "React with TypeScript",
+    "React State Management - Redux",
     "CSS Animations",
     "Django x Python",
   ];
@@ -298,7 +328,7 @@ export function CV() {
       <p className="mx-4">
         CV can be downloaded at:
         <a
-          href="https://drive.google.com/file/d/1GID2TcZFgdbpG5fvW7DThoaeaz0bR33r/view?usp=sharing"
+          href="https://drive.google.com/file/d/1eRq7WyLldh3I4aFlVGTiYrysQzZ23sGq/view?usp=sharing"
           target="_blank"
           className="justLinks"
         >
@@ -351,7 +381,7 @@ export function Contact({ auto }: any) {
   );
 }
 
-export function Navbar(): any {
+export function Navbar() {
   return (
     <nav className="navbar nav">
       <div className="container-fluid">

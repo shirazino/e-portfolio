@@ -21,6 +21,10 @@ svg {
   fill: var(--font);
 }
 
+p.skeletonTxt {
+  font-size: 16px;
+}
+
 @keyframes skeleton {
   0% {
     background-color: rgb(226, 226, 226);

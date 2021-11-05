@@ -15,7 +15,7 @@ export const Work: React.FC<Props> = ({ match }) => {
   );
 };
 
-function CheckParams(props: any) {
+function CheckParams(props: string) {
   switch (props) {
     case "HTML Tutor":
       return <Container content={HTMLApp()} text={HTMLApp(true)} />;
@@ -44,6 +44,8 @@ function CheckParams(props: any) {
       return <Container content={JavaMovies()} text={JavaMovies(true)} />;
     case "Frontend SPA":
       return <Container content={HedgehogSPA()} text={HedgehogSPA(true)} />;
+    case "Tasks-Calendar webapp":
+      return <Container content={ThisnThat()} text={ThisnThat(true)} />;
     default:
       return <Redirect to="/notfound" />;
   }
@@ -760,6 +762,57 @@ function HedgehogSPA(bool?: boolean) {
           className="mx-2"
           src={SPAwork[3]}
           alt="hedgehog spa images"
+          height="832px"
+        />
+      </div>
+    </div>
+  );
+}
+
+function ThisnThat(bool?: boolean) {
+  function MoreText() {
+    return (
+      <div className="d-flex flex-column">
+        <p>
+          Created for helping people with 'Lazyness & procastination issues' to
+          do apps have helped millions of people by helping them achieve daily
+          tasks get after their new habits!
+        </p>
+        <p>
+          This app is intended to do so, however this will have calendar
+          integration and will act as one place for everything for example see
+          your tasks in a calendar alongside your Gmail/Outlook events great
+          right!?
+        </p>
+        <p>Stack used:</p>
+        <li>React x Typescript</li>
+        <li>Node js</li>
+        <li>Mongo DB</li>
+        <li>Django x Python</li>
+      </div>
+    );
+  }
+  if (bool === true) {
+    return <MoreText />;
+  }
+  var thisnthatWork = [
+    "https://i.imgur.com/Sl9z74P.png",
+    "https://i.imgur.com/0fOXOgD.png",
+  ];
+
+  return (
+    <div>
+      <div className="d-flex flex-row">
+        <img
+          className="me-2"
+          src={thisnthatWork[0]}
+          alt="thisnthatWork images"
+          height="832px"
+        />
+        <img
+          className="me-2"
+          src={thisnthatWork[1]}
+          alt="thisnthatWork images"
           height="832px"
         />
       </div>

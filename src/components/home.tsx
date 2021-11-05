@@ -12,10 +12,10 @@ import { saveData } from "./notion";
 import $ from "jquery";
 import ThemeSelector, { DynamicImg } from "./theme";
 
-export function Homepage(): any {
+export function Homepage() {
   const [fontSize, setFontSize] = useState({});
   const [windowSize, setWindowSize] = useState({});
-  const [justify, setJustify] = useState("");
+  const [justify, setJustify] = useState<string>("");
   var style = {
     marginTop: window.innerHeight / 2 - 100,
     marginBottom: window.innerHeight / 2 - 100,
@@ -68,31 +68,32 @@ export function Homepage(): any {
         style={style}
         className="d-flex flex-column align-items-center intro"
       >
-        <h1 className="name mb-4" style={fontSize}>
-          Hi, I'm Kashif Tauseef.
-        </h1>
-        <div className="mx-4">
-          <Fetch notionBlock="914037e1fa8d497c8b153c972eed593e" />
-          {/* <img id="arrowD" src={arrowB} alt="arrowDown" /> */}
-          <div id="arrowD">
-            <DynamicImg />
-          </div>
-
-          <svg
-            id="svg"
-            xmlns="http://www.w3.org/2000/svg"
-            width="35"
-            height="35"
-            fill="currentColor"
-            className="bi bi-arrow-down-circle arrow"
-            viewBox="0 0 16 16"
-          >
-            <path
-              fillRule="evenodd"
-              d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V4.5z"
-            />
-          </svg>
+        <div className="name mb-4" style={fontSize}>
+          {/* Hi, I'm Kashif Tauseef. */}
+          <Fetch notionBlock="cdc47159b76744a19cdba0166ee0153d" loop={1} />
         </div>
+        <div className="fetch mb-4 mx-3">
+          <Fetch notionBlock="914037e1fa8d497c8b153c972eed593e" loop={3} />
+        </div>
+
+        <div id="arrowD">
+          <DynamicImg />
+        </div>
+
+        <svg
+          id="svg"
+          xmlns="http://www.w3.org/2000/svg"
+          width="35"
+          height="35"
+          fill="currentColor"
+          className="bi bi-arrow-down-circle arrow"
+          viewBox="0 0 16 16"
+        >
+          <path
+            fillRule="evenodd"
+            d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V4.5z"
+          />
+        </svg>
       </div>
       <div className="d-flex flex-row justify-content-around">
         <section id="sectionL" style={windowSize}>

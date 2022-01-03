@@ -789,6 +789,10 @@ function ThisnThat(bool?: boolean) {
         <li>Node js</li>
         <li>Mongo DB</li>
         <li>Django x Python</li>
+        <br />
+        <a className="justLinks" href="https://github.com/kashif-js/react-todo">
+          browse code
+        </a>
       </div>
     );
   }
@@ -796,8 +800,8 @@ function ThisnThat(bool?: boolean) {
     return <MoreText />;
   }
   var thisnthatWork = [
-    "https://i.imgur.com/Sl9z74P.png",
-    "https://i.imgur.com/0fOXOgD.png",
+    "https://i.imgur.com/fnaW5Br.png",
+    "https://i.imgur.com/7tuXuI8.png",
   ];
 
   return (

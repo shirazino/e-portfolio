@@ -21,6 +21,31 @@ export async function getIP() {
   }
 }
 
+export function Meme() {
+  try {
+    var json = { fellForIt: true };
+
+    var axios = require("axios");
+    var data = JSON.stringify(json);
+
+    var config = {
+      method: "post",
+      url: `https://notion-api-kashif-js.vercel.app/dynamic/${data}`,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+
+    axios(config)
+      .then(function (response) {})
+      .catch(function (error) {
+        console.log(error);
+      });
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 export function getTime() {
   const moment = require("moment");
   var currentTime = moment().format("MMMM Do YYYY, h:mm:ss a");
@@ -44,27 +69,8 @@ export async function saveData() {
   };
 
   axios(config)
-    .then(function (response) {
-      // console.log(JSON.stringify(response.data));
-    })
+    .then(function (response) {})
     .catch(function (error) {
       console.log(error);
     });
 }
-
-// export default function FetchIntro() {
-//   var axios = require("axios");
-//   var config = {
-//     method: "get",
-//     url: "https://notion-api-teal.vercel.app/getblock/914037e1fa8d497c8b153c972eed593e",
-//     headers: {},
-//   };
-
-//   axios(config)
-//     .then(function (response) {
-//       return JSON.stringify(response.data);
-//     })
-//     .catch(function (error) {
-//       return error;
-//     });
-// }

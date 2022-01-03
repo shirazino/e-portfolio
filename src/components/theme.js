@@ -42,7 +42,7 @@ const setDark = () => {
   document.documentElement.style.setProperty("--background", "#202124");
   document.documentElement.style.setProperty(
     "--borderColor",
-    "rgba(48, 49, 52, 0.6)"
+    "rgba(48, 49, 52, 0.3)"
   );
   document.documentElement.style.setProperty("--accentFont", "#aaaaaa");
   document.body.style.backgroundImage = `url(${background})`;

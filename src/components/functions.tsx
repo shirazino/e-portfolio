@@ -103,8 +103,9 @@ export function ListProjects() {
     React: [
       "HTML Tutor",
       "Tasks-Calendar webapp",
-      "e-Portfolio",
+      "Design x Prototype @ AND Digital",
       "Frontend SPA",
+      "e-Portfolio",
     ],
     React_Native: ["Coffi-da reviews app"],
 

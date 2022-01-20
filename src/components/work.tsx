@@ -46,6 +46,13 @@ function CheckParams(props: string) {
       return <Container content={HedgehogSPA()} text={HedgehogSPA(true)} />;
     case "Tasks-Calendar webapp":
       return <Container content={ThisnThat()} text={ThisnThat(true)} />;
+    case "Design x Prototype @ AND Digital":
+      return (
+        <Container
+          content={ANDResponsiveDesign()}
+          text={ANDResponsiveDesign(true)}
+        />
+      );
     default:
       return <Redirect to="/notfound" />;
   }
@@ -118,82 +125,21 @@ function HTMLApp(bool?: boolean) {
   var width = 365.4;
   var height = 791.25;
 
+  let drop = HTML.map((x, index) => {
+    return (
+      <img
+        className="me-1"
+        src={x}
+        alt={`HTML Teaching tool ${index}`}
+        width={width}
+        height={height}
+      />
+    );
+  });
+
   return (
     <div>
-      <div className="d-flex flex-nowrap flex-row">
-        {/* {container()} */}
-        <img
-          id="immagine"
-          className="me-4"
-          src={HTML[0]}
-          alt="work images"
-          width={width}
-          height={height}
-        />
-        <img
-          className="mx-4"
-          src={HTML[1]}
-          alt="work images"
-          width={width}
-          height={height}
-        />
-        <img
-          className="mx-4"
-          src={HTML[2]}
-          alt="work images"
-          width={width}
-          height={height}
-        />
-        <img
-          className="mx-4"
-          src={HTML[3]}
-          alt="work images"
-          width={width}
-          height={height}
-        />
-        <img
-          className="mx-4"
-          src={HTML[4]}
-          alt="work images"
-          width={width}
-          height={height}
-        />
-        <img
-          className="mx-4"
-          src={HTML[5]}
-          alt="work images"
-          width={width}
-          height={height}
-        />
-        <img
-          className="mx-4"
-          src={HTML[6]}
-          alt="work images"
-          width={width}
-          height={height}
-        />
-        <img
-          className="mx-4"
-          src={HTML[7]}
-          alt="work images"
-          width={width}
-          height={height}
-        />
-        <img
-          className="mx-4"
-          src={HTML[8]}
-          alt="work images"
-          width={width}
-          height={height}
-        />
-        <img
-          className="mx-4"
-          src={HTML[9]}
-          alt="work images"
-          width={width}
-          height={height}
-        />
-      </div>
+      <div className="d-flex flex-nowrap flex-row">{drop}</div>
     </div>
   );
 }
@@ -235,7 +181,7 @@ function HTMLBackend(bool?: boolean) {
       </div>
     );
   }
-  return <div>hi</div>;
+  return <div></div>;
 }
 
 function CoffeeApp(bool?: boolean) {
@@ -294,52 +240,19 @@ function CoffeeApp(bool?: boolean) {
   var width = 365.4;
   var height = 791.25;
 
-  return (
-    <div className="d-flex flex-nowrap flex-row">
+  let drop = Coffee.map((x, index) => {
+    return (
       <img
-        className="me-4"
-        src={Coffee[0]}
-        alt="coffee app screenshot"
+        className="me-1"
+        src={x}
+        alt={`Coffee platform React Native ${index}`}
         width={width}
         height={height}
       />
-      <img
-        className="mx-4"
-        src={Coffee[1]}
-        alt="coffee app screenshot"
-        width={width}
-        height={height}
-      />
-      <img
-        className="mx-4"
-        src={Coffee[2]}
-        alt="coffee app screenshot"
-        width={width}
-        height={height}
-      />
-      <img
-        className="mx-4"
-        src={Coffee[3]}
-        alt="coffee app screenshot"
-        width={width}
-        height={height}
-      />
-      <img
-        className="mx-4"
-        src={Coffee[4]}
-        alt="coffee app screenshot"
-        width={width}
-        height={height}
-      />
-      <img
-        className="mx-4"
-        src={Coffee[5]}
-        alt="coffee app screenshot"
-        width={width}
-        height={height}
-      />
-    </div>
-  );
+    );
+  });
+
+  return <div className="d-flex flex-nowrap flex-row">{drop}</div>;
 }
 
 function OddOneOutGame(bool?: boolean) {
@@ -381,61 +294,84 @@ function OddOneOutGame(bool?: boolean) {
     "https://raw.githubusercontent.com/kashif-js/OddOneOut-Repo/master/media/vote.png",
   ];
 
-  // var width = 780;
-  // var height = 844;
+  if (bool === true) {
+    return <MoreText />;
+  }
+
+  let drop = ODD.map((x, index) => {
+    return <img className="me-1" src={x} alt={`ODD stuff ${index}`} />;
+  });
+
+  return (
+    <div>
+      <div className="d-flex flex-row">{drop}</div>
+    </div>
+  );
+}
+
+function ANDResponsiveDesign(bool?: boolean) {
+  function MoreText() {
+    return (
+      <div className="d-flex flex-column">
+        <h5>Front end design & prototype for Golden Shoe Client</h5>
+
+        <h5>Stack Used:</h5>
+        <ul>React</ul>
+        <ul>Node JS</ul>
+
+        <ul>Express JS</ul>
+        <ul>Rest API</ul>
+        <ul>Sneaks (api)</ul>
+        <ul>MongoDB</ul>
+        <a
+          href="https://github.com/kashif-js/anddigital-fe"
+          className="justLinks"
+        >
+          browse code front_end
+        </a>
+        <a
+          href="https://github.com/kashif-js/anddigital-be"
+          className="justLinks"
+        >
+          browse code back_end
+        </a>
+      </div>
+    );
+  }
+
+  var AND = [
+    "https://i.imgur.com/mtx01GC.png",
+    "https://i.imgur.com/YlDJrve.png",
+    "https://i.imgur.com/aHiAYUe.png",
+    "https://i.imgur.com/gGMNkjR.png",
+    "https://i.imgur.com/4TgpTGl.png",
+    "https://i.imgur.com/dSi1ub4.png",
+    "https://i.imgur.com/D5EwuTZ.png",
+  ];
+
+  let drop = AND.map((x, index) => {
+    if (x === AND[0]) {
+      return (
+        <img
+          className="me-1 my-auto"
+          src={x}
+          alt={`AND PROTOTYPE x FIGMA ${index}`}
+          height={" 756px"}
+          width={"1416px"}
+        />
+      );
+    } else {
+      return (
+        <img className="mx-1" src={x} alt={`AND PROTOTYPE x FIGMA ${index}`} />
+      );
+    }
+  });
 
   if (bool === true) {
     return <MoreText />;
   }
 
-  return (
-    <div>
-      <div className="d-flex flex-row">
-        <img
-          className="me-2"
-          src={ODD[0]}
-          alt="Odd Game screenshots"
-          //height={height}
-          //width={width}
-        />
-        <img
-          className="mx-2"
-          src={ODD[1]}
-          alt="Odd Game screenshots"
-          //height={height}
-          //width={width}
-        />
-        <img
-          className="mx-2"
-          src={ODD[2]}
-          alt="Odd Game screenshots"
-          //height={height}
-          //width={width}
-        />
-        <img
-          className="mx-2"
-          src={ODD[3]}
-          alt="Odd Game screenshots"
-          //height={height}
-          //width={width}
-        />
-        <img
-          className="mx-2"
-          src={ODD[4]}
-          alt="Odd Game screenshots"
-          //height={height}
-          //width={width}
-        />
-        <img
-          className="mx-2"
-          src={ODD[5]}
-          alt="Odd Game screenshots"
-          //height={height}
-          //width={width}
-        />
-      </div>
-    </div>
-  );
+  return <div className="d-flex flex-nowrap flex-row">{drop}</div>;
 }
 
 function EPortfolio(bool?: boolean) {
@@ -491,6 +427,10 @@ function NotionAPI(bool?: boolean) {
       </div>
     );
   }
+  let Notion = [
+    "https://i.imgur.com/4NlX8YZ.png",
+    "https://i.imgur.com/ptdKw2f.png",
+  ];
 
   if (bool === true) {
     return <MoreText />;
@@ -499,24 +439,21 @@ function NotionAPI(bool?: boolean) {
   var width = 365.4;
   var height = 791.25;
 
+  let drop = Notion.map((x, index) => {
+    return (
+      <img
+        className="me-1 mx-auto"
+        src={x}
+        alt={`Notion work ${index}`}
+        width={width}
+        height={height}
+      />
+    );
+  });
+
   return (
     <div>
-      <div className="d-flex flex-nowrap flex-row">
-        <img
-          className="mx-2"
-          src="https://i.imgur.com/4NlX8YZ.png"
-          alt="notion work"
-          width={width}
-          height={height}
-        />
-        <img
-          className="mx-2"
-          src="https://i.imgur.com/ptdKw2f.png"
-          alt="notion work"
-          width={width}
-          height={height}
-        />
-      </div>
+      <div className="d-flex flex-row flex-nowrap">{drop}</div>
     </div>
   );
 }
@@ -605,20 +542,11 @@ function PHPFocusedAssessment(bool?: boolean) {
     "https://w0m9oq.am.files.1drv.com/y4m5yNTPy2RUx2LHHRYNUyFYOA0H3KljJvtq1WsYOKh7x2b_LRJk9q8Df4OZVGSTeXSdqDSEP2U9rPbK6ToqZgSkAMGjUaBKkCTNlq5Po3KJRh6EYXHKEEiozYuhMxWCnAGNN48Q04gs5V9GIhElWsozM1R8sSCllgX0yO0ljqGIcIz-bKoCKunsY0q86VI51_aw0tgrFDbRc_2zijeAMuWgg/logIN.png?psid=1",
   ];
 
-  return (
-    <div className="d-flex flex-nowrap flex-row">
-      <img className="me-4" src={PHPwork[0]} alt="PHP Survey work" />
-      <img className="mx-4" src={PHPwork[1]} alt="PHP Survey work" />
-      <img className="mx-4" src={PHPwork[2]} alt="PHP Survey work" />
-      <img className="mx-4" src={PHPwork[3]} alt="PHP Survey work" />
-      <img className="mx-4" src={PHPwork[4]} alt="PHP Survey work" />
-      <img className="mx-4" src={PHPwork[5]} alt="PHP Survey work" />
-      <img className="mx-4" src={PHPwork[6]} alt="PHP Survey work" />
-      <img className="mx-4" src={PHPwork[7]} alt="PHP Survey work" />
-      <img className="mx-4" src={PHPwork[8]} alt="PHP Survey work" />
-      <img className="mx-4" src={PHPwork[9]} alt="PHP Survey work" />
-    </div>
-  );
+  let drop = PHPwork.map((x, index) => {
+    return <img className="me-1" src={x} alt={`PHP work ${index}`} />;
+  });
+
+  return <div className="d-flex flex-nowrap flex-row">{drop}</div>;
 }
 
 function PHPFrameworks(bool?: boolean) {
@@ -645,7 +573,7 @@ function PHPFrameworks(bool?: boolean) {
   }
   return (
     <div>
-      <p>screenshots awaiting!</p>
+      <p></p>
     </div>
   );
 }
@@ -672,6 +600,13 @@ function JavaMovies(bool?: boolean) {
       </div>
     );
   }
+  let JAVAMovies = [
+    "https://i.imgur.com/XHK2FjZ.png",
+    "https://i.imgur.com/fDHKwch.png",
+  ];
+  let drop = JAVAMovies.map((x, index) => {
+    return <img className="me-1" src={x} alt={`JAVA Movies ${index}`} />;
+  });
 
   if (bool === true) {
     return <MoreText />;
@@ -679,18 +614,7 @@ function JavaMovies(bool?: boolean) {
 
   return (
     <div>
-      <div className="d-flex flex-row">
-        <img
-          className="me-2"
-          src="https://i.imgur.com/XHK2FjZ.png"
-          alt="Java server pages"
-        />
-        <img
-          className="mx-2"
-          src="https://i.imgur.com/fDHKwch.png"
-          alt="Java server pages"
-        />
-      </div>
+      <div className="d-flex flex-row">{drop}</div>
     </div>
   );
 }
@@ -737,34 +661,20 @@ function HedgehogSPA(bool?: boolean) {
     "https://i.imgur.com/jljiNz7.png",
   ];
 
+  let drop = SPAwork.map((x, index) => {
+    return (
+      <img
+        className="me-1"
+        src={x}
+        alt={`useless SPA ${index}`}
+        height="832px"
+      />
+    );
+  });
+
   return (
     <div>
-      <div className="d-flex flex-row">
-        <img
-          className="me-2"
-          src={SPAwork[0]}
-          alt="hedgehog spa images"
-          height="832px"
-        />
-        <img
-          className="mx-2"
-          src={SPAwork[1]}
-          alt="hedgehog spa images"
-          height="832px"
-        />
-        <img
-          className="mx-2"
-          src={SPAwork[2]}
-          alt="hedgehog spa images"
-          height="832px"
-        />
-        <img
-          className="mx-2"
-          src={SPAwork[3]}
-          alt="hedgehog spa images"
-          height="832px"
-        />
-      </div>
+      <div className="d-flex flex-row">{drop}</div>
     </div>
   );
 }
@@ -799,27 +709,18 @@ function ThisnThat(bool?: boolean) {
   if (bool === true) {
     return <MoreText />;
   }
-  var thisnthatWork = [
+  var ProductivityApp = [
     "https://i.imgur.com/fnaW5Br.png",
     "https://i.imgur.com/7tuXuI8.png",
   ];
 
+  let drop = ProductivityApp.map((x, index) => {
+    return <img className="me-1" src={x} alt={`Productivity App ${index}`} />;
+  });
+
   return (
     <div>
-      <div className="d-flex flex-row">
-        <img
-          className="me-2"
-          src={thisnthatWork[0]}
-          alt="thisnthatWork images"
-          height="832px"
-        />
-        <img
-          className="me-2"
-          src={thisnthatWork[1]}
-          alt="thisnthatWork images"
-          height="832px"
-        />
-      </div>
+      <div className="d-flex flex-row">{drop}</div>
     </div>
   );
 }

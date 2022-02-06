@@ -84,7 +84,7 @@ export function Fetch({ notionBlock, loop }: props) {
 export function Mywork() {
   return (
     <div className="d-flex flex-nowrap mb-3">
-      <a href="https://github.com/kashif-js" className="justLinks mx-auto">
+      <a href="https://github.com/shirazino" className="justLinks mx-auto">
         See more on GitHub
         <img
           className="ms-2"
@@ -103,7 +103,7 @@ export function ListProjects() {
     React: [
       "HTML Tutor",
       "Tasks-Calendar webapp",
-      "Design x Prototype @ AND Digital",
+      "Prototype x AND Digital",
       "Frontend SPA",
       "e-Portfolio",
     ],
@@ -253,7 +253,7 @@ export function Skills() {
 
   return (
     <div className="coolBorders">
-      <h1 className="mb-3 h1Title">Technical Skills</h1>
+      <h1 className={`mb-3 h1Title`}>Technical Skills</h1>
       <h5>{category[0]}</h5>
       <span className="d-flex flex-wrap flex-row">{arr1}</span>
       <h5>{category[1]}</h5>
@@ -292,10 +292,11 @@ export function Education() {
     "React with TypeScript",
     "CSS Animations",
     "Django x Python",
+    "Figma design",
   ];
   var arr = qualifications.map((x, index) => {
     return (
-      <p className="mx-4" key={index}>
+      <p className="me-4" key={index}>
         {x.title} - {x.grade} <br />{" "}
         <span className="uniFontcolor">{x.uni}</span>
       </p>
@@ -303,7 +304,7 @@ export function Education() {
   });
   var arr2 = development.map((y, index) => {
     return (
-      <p className="mx-4" key={index}>
+      <p className="me-4" key={index}>
         {y}
       </p>
     );
@@ -322,10 +323,10 @@ export function CV() {
   return (
     <div className="coolBorders">
       <h1 className="h1Title">CV</h1>
-      <p className="mx-4">
+      <p className="me-4">
         CV can be downloaded at:
         <a
-          href="https://drive.google.com/file/d/1eRq7WyLldh3I4aFlVGTiYrysQzZ23sGq/view?usp=sharing"
+          href="https://drive.google.com/file/d/1IxG_STLFju2otFjuGokgf4unaHa1vYzn/view?usp=sharing"
           target="_blank"
           className="justLinks"
         >
@@ -340,10 +341,10 @@ export function Contact({ auto }: any) {
   return (
     <div className="mb-3 coolBorders">
       <h1 className="mb-3 h1Title">Contact</h1>
-      <p className="mx-4 ">My contacts and socials! </p>
-      <div className={`d-flex flex-row ${auto} my-4 mx-3`}>
+      <p className="me-4 ">My contacts and socials! </p>
+      <div className={`d-flex flex-row ${auto} my-3 me-3`}>
         <p>
-          <a href="mailto:kashiftauseef@gmail.com" className="contactLinks">
+          <a href="mailto:shiraz.xt@gmail.com" className="contactLinks">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="30"
@@ -358,7 +359,7 @@ export function Contact({ auto }: any) {
         </p>
         <p>
           <a
-            href="https://www.linkedin.com/in/kashif-tauseef-42268a1a0/"
+            href="https://www.linkedin.com/in/shiraz-tauseef-42268a1a0/"
             className="contactLinks"
           >
             <svg

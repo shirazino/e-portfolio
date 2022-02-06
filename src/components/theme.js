@@ -1,40 +1,8 @@
 import { useState, useEffect } from "react";
-import white from "../media/whitearrow.png";
-import black from "../media/blackarrow.png";
 import background from "../media/stars.png";
 
 export default function ThemeSelector({ visibility }) {
   return <AdjustTheme visibility={visibility} />;
-}
-
-export function DynamicImg() {
-  const [source, setSource] = useState(white);
-  const [update, setUpdate] = useState(false);
-  useEffect(() => {
-    if (
-      localStorage.getItem("theme") !== undefined ||
-      localStorage.getItem("theme") !== null
-    ) {
-      if (localStorage.getItem("theme") === "light") {
-        setSource(black);
-      } else if (localStorage.getItem("theme") === "dark") {
-        setSource(white);
-      }
-    } else {
-      setSource(black);
-    }
-  }, []);
-
-  return (
-    <div
-      style={{
-        backgroundImage: `url(${source})`,
-        width: "100px",
-        height: "200px",
-        backgroundRepeat: "no-repeat",
-      }}
-    ></div>
-  );
 }
 
 const setDark = () => {
@@ -50,11 +18,8 @@ const setDark = () => {
 
 const setLight = () => {
   document.documentElement.style.setProperty("--font", "#000000");
-  document.documentElement.style.setProperty("--background", "#F3F2EF");
-  document.documentElement.style.setProperty(
-    "--borderColor",
-    "#rgba(255,255,255, 0.6)"
-  );
+  document.documentElement.style.setProperty("--background", "#f3f2ef");
+  document.documentElement.style.setProperty("--borderColor", "#ffffff");
   document.documentElement.style.setProperty("--accentFont", "black");
   document.body.style.backgroundImage = `none`;
 };

@@ -46,7 +46,7 @@ function CheckParams(props: string) {
       return <Container content={HedgehogSPA()} text={HedgehogSPA(true)} />;
     case "Tasks-Calendar webapp":
       return <Container content={ThisnThat()} text={ThisnThat(true)} />;
-    case "Design x Prototype @ AND Digital":
+    case "Prototype x AND Digital":
       return (
         <Container
           content={ANDResponsiveDesign()}
@@ -98,7 +98,7 @@ function HTMLApp(bool?: boolean) {
         <ul>Jest</ul>
 
         <a
-          href="https://github.com/kashif-js/reactjs-project"
+          href="https://github.com/shirazino/reactjs-project"
           className="justLinks"
         >
           browse code
@@ -155,7 +155,7 @@ function HTMLBackend(bool?: boolean) {
         <p>
           This is the back-end for the
           <a
-            href="https://kashif-js.github.io/e-portfolio/#/e-portfolio/work/HTML%20Tutor"
+            href="https://shirazino.github.io/e-portfolio/#/e-portfolio/work/HTML%20Tutor"
             className="justLinks"
           >
             HTML teaching and learning platform.
@@ -173,7 +173,7 @@ function HTMLBackend(bool?: boolean) {
         <li>Nodemon</li>
         <li>Heroku</li>
         <a
-          href="https://github.com/kashif-js/nodejs-server"
+          href="https://github.com/shirazino/nodejs-server"
           className="justLinks"
         >
           browse code
@@ -215,7 +215,7 @@ function CoffeeApp(bool?: boolean) {
         <ul>Rest API</ul>
         <ul>MySQL</ul>
         <a
-          href="https://github.com/kashif-js/ReactNativeApp-CoffiDa"
+          href="https://github.com/shirazino/ReactNativeApp-CoffiDa"
           className="justLinks"
         >
           browse code
@@ -225,12 +225,12 @@ function CoffeeApp(bool?: boolean) {
   }
 
   var Coffee = [
-    "https://raw.githubusercontent.com/kashif-js/ReactNativeApp-CoffiDa/master/media/home.png",
-    "https://raw.githubusercontent.com/kashif-js/ReactNativeApp-CoffiDa/master/media/profile.png",
-    "https://raw.githubusercontent.com/kashif-js/ReactNativeApp-CoffiDa/master/media/reviews.png",
-    "https://raw.githubusercontent.com/kashif-js/ReactNativeApp-CoffiDa/master/media/location.png",
-    "https://raw.githubusercontent.com/kashif-js/ReactNativeApp-CoffiDa/master/media/login.png",
-    "https://raw.githubusercontent.com/kashif-js/ReactNativeApp-CoffiDa/master/media/settings.png",
+    "https://raw.githubusercontent.com/shirazino/ReactNativeApp-CoffiDa/master/media/home.png",
+    "https://raw.githubusercontent.com/shirazino/ReactNativeApp-CoffiDa/master/media/profile.png",
+    "https://raw.githubusercontent.com/shirazino/ReactNativeApp-CoffiDa/master/media/reviews.png",
+    "https://raw.githubusercontent.com/shirazino/ReactNativeApp-CoffiDa/master/media/location.png",
+    "https://raw.githubusercontent.com/shirazino/ReactNativeApp-CoffiDa/master/media/login.png",
+    "https://raw.githubusercontent.com/shirazino/ReactNativeApp-CoffiDa/master/media/settings.png",
   ];
 
   if (bool === true) {
@@ -271,13 +271,13 @@ function OddOneOutGame(bool?: boolean) {
         <ul>JavaScript and jQuery</ul>
         <a
           className="justLinks"
-          href="https://github.com/kashif-js/OddOneOut-Repo"
+          href="https://github.com/shirazino/OddOneOut-Repo"
         >
           Browse code
         </a>
         <a
           className="justLinks"
-          href="https://kashif-js.github.io/OddOneOut-Repo/Index.html#"
+          href="https://shirazino.github.io/OddOneOut-Repo/Index.html#"
         >
           run
         </a>
@@ -286,12 +286,12 @@ function OddOneOutGame(bool?: boolean) {
   }
 
   var ODD = [
-    "https://raw.githubusercontent.com/kashif-js/OddOneOut-Repo/master/media/1.png",
-    "https://raw.githubusercontent.com/kashif-js/OddOneOut-Repo/master/media/2.png",
-    "https://raw.githubusercontent.com/kashif-js/OddOneOut-Repo/master/media/3.png",
-    "https://raw.githubusercontent.com/kashif-js/OddOneOut-Repo/master/media/4.png",
-    "https://raw.githubusercontent.com/kashif-js/OddOneOut-Repo/master/media/5.png",
-    "https://raw.githubusercontent.com/kashif-js/OddOneOut-Repo/master/media/vote.png",
+    "https://raw.githubusercontent.com/shirazino/OddOneOut-Repo/master/media/1.png",
+    "https://raw.githubusercontent.com/shirazino/OddOneOut-Repo/master/media/2.png",
+    "https://raw.githubusercontent.com/shirazino/OddOneOut-Repo/master/media/3.png",
+    "https://raw.githubusercontent.com/shirazino/OddOneOut-Repo/master/media/4.png",
+    "https://raw.githubusercontent.com/shirazino/OddOneOut-Repo/master/media/5.png",
+    "https://raw.githubusercontent.com/shirazino/OddOneOut-Repo/master/media/vote.png",
   ];
 
   if (bool === true) {
@@ -324,13 +324,13 @@ function ANDResponsiveDesign(bool?: boolean) {
         <ul>Sneaks (api)</ul>
         <ul>MongoDB</ul>
         <a
-          href="https://github.com/kashif-js/anddigital-fe"
+          href="https://github.com/shirazino/anddigital-fe"
           className="justLinks"
         >
           browse code front_end
         </a>
         <a
-          href="https://github.com/kashif-js/anddigital-be"
+          href="https://github.com/shirazino/anddigital-be"
           className="justLinks"
         >
           browse code back_end
@@ -397,14 +397,14 @@ function EPortfolio(bool?: boolean) {
           <br /> See an example
           <a
             className="justLinks"
-            href="https://kashif-js.github.io/e-portfolio/#/e-portfolio/work/Notion%20API"
+            href="https://shirazino.github.io/e-portfolio/#/e-portfolio/work/Notion%20API"
           >
             here
           </a>
         </p>
         <a
           className="justLinks"
-          href="https://github.com/kashif-js/e-portfolio"
+          href="https://github.com/shirazino/e-portfolio"
         >
           Browse Code
         </a>
@@ -484,7 +484,7 @@ function LocalMosque() {
         <ul>AWS console</ul>
         <a
           className="justLinks"
-          href="https://github.com/kashif-js/local-mosque-alexa"
+          href="https://github.com/shirazino/local-mosque-alexa"
         >
           Browse the code here
         </a>
@@ -520,7 +520,7 @@ function PHPFocusedAssessment(bool?: boolean) {
         <ul>HTML</ul>
         <ul>CSS</ul>
         <ul>MySQL</ul>
-        <a className="justLinks" href="https://github.com/kashif-js/SurveyPHP">
+        <a className="justLinks" href="https://github.com/shirazino/SurveyPHP">
           browse code
         </a>
       </div>
@@ -700,7 +700,7 @@ function ThisnThat(bool?: boolean) {
         <li>Mongo DB</li>
         <li>Django x Python</li>
         <br />
-        <a className="justLinks" href="https://github.com/kashif-js/react-todo">
+        <a className="justLinks" href="https://github.com/shirazino/react-todo">
           browse code
         </a>
       </div>

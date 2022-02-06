@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import {
-  Mywork,
   ListProjects,
   Skills,
   Education,
@@ -9,8 +8,7 @@ import {
   Fetch,
 } from "./functions";
 import { saveData } from "./notion";
-import $ from "jquery";
-import ThemeSelector, { DynamicImg } from "./theme";
+import ThemeSelector from "./theme";
 
 export function Homepage() {
   const [fontSize, setFontSize] = useState({});
@@ -24,17 +22,11 @@ export function Homepage() {
   useEffect(() => {
     function handleResize() {
       if (window.innerWidth < 420) {
-        // setWindowSize({ width: 320 });
         setFontSize({ fontSize: 30 });
         setJustify("justify-content-evenly");
-        $("#svg").hide();
-        $("#arrowD").show();
       } else {
-        // setWindowSize({ width: 700 });
         setFontSize({ fontSize: 40 });
         setJustify("justify-content-start");
-        $("#arrowD").hide();
-        $("#svg").show();
       }
     }
 
@@ -52,15 +44,6 @@ export function Homepage() {
     }
   });
 
-  $("#svg").click(function () {
-    $([document.documentElement, document.body]).animate(
-      {
-        scrollTop: $("#sectionL").offset().top,
-      },
-      500
-    );
-  });
-
   return (
     <div>
       <ThemeSelector visibility={true} />
@@ -69,16 +52,12 @@ export function Homepage() {
         className="d-flex flex-column align-items-center intro"
       >
         <div className="name mb-4" style={fontSize}>
-          {/* Hi, I'm Kashif Tauseef. */}
           <Fetch notionBlock="cdc47159b76744a19cdba0166ee0153d" loop={1} />
         </div>
         <div className="fetch mb-4 mx-3">
           <Fetch notionBlock="914037e1fa8d497c8b153c972eed593e" loop={3} />
         </div>
-
-        <div id="arrowD">
-          <DynamicImg />
-        </div>
+        <div />
 
         <svg
           id="svg"

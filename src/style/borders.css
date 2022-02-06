@@ -3,10 +3,9 @@
 }
 
 .coolBorders {
-  /* opacity: ; */
-  border-radius: 7px;
+  border-radius: 5px;
   margin-bottom: 20px;
-  padding: 10px;
+  padding: 12px;
   background-color: var(--borderColor);
-  box-shadow: 0px 0px 5px rgb(168, 168, 168);
+  box-shadow: 0px 0px 2px rgb(168, 168, 168);
 }

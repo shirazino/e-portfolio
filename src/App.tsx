@@ -4,11 +4,16 @@ import "./style/borders.css";
 
 import { Homepage } from "./components/home";
 import { Work } from "./components/work";
-import { Route, Switch, HashRouter } from "react-router-dom";
+import {
+  Route,
+  Switch,
+  HashRouter,
+  BrowserRouter as Router,
+} from "react-router-dom";
 
 function App() {
   return (
-    <HashRouter basename={process.env.PUBLIC_URL}>
+    <Router>
       <Switch>
         <Route exact path={"/"} component={Homepage}></Route>
         <Route exact path={"/work/:name"} component={Work}></Route>
@@ -21,7 +26,7 @@ function App() {
           )}
         ></Route>
       </Switch>
-    </HashRouter>
+    </Router>
   );
 }
 

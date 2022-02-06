@@ -2,6 +2,13 @@ import React from "react";
 import { RouteComponentProps } from "react-router";
 import { Redirect } from "react-router-dom";
 import ThemeSelector from "./theme";
+import ImageGallery from "react-image-gallery";
+// # SCSS
+// import "react-image-gallery/styles/scss/image-gallery.scss";
+
+// # CSS
+// import "react-image-gallery/styles/css/image-gallery.css";
+import Gallery from "./Gallery";
 
 interface Props extends RouteComponentProps<{ name: string }> {}
 
@@ -26,7 +33,7 @@ function CheckParams(props: string) {
     case "HTML Tutor backend":
       return <Container content={HTMLBackend()} text={HTMLBackend(true)} />;
     case "Local Mosque IOT":
-      return <Container content={LocalMosque()} />;
+      return <Container content={LocalMosque()} text={LocalMosque(true)} />;
     case "Out Of The Loop game":
       return <Container content={OddOneOutGame()} text={OddOneOutGame(true)} />;
     case "e-Portfolio":
@@ -118,9 +125,6 @@ function HTMLApp(bool?: boolean) {
     "https://i.imgur.com/RFC0vOL.png",
     "https://i.imgur.com/68O94hj.png",
   ];
-  if (bool === true) {
-    return <MoreText />;
-  }
 
   var width = 365.4;
   var height = 791.25;
@@ -128,6 +132,7 @@ function HTMLApp(bool?: boolean) {
   let drop = HTML.map((x, index) => {
     return (
       <img
+        key={index.toString()}
         className="me-1"
         src={x}
         alt={`HTML Teaching tool ${index}`}
@@ -136,10 +141,15 @@ function HTMLApp(bool?: boolean) {
       />
     );
   });
+  if (bool === true) {
+    return <MoreText />;
+  }
 
   return (
     <div>
-      <div className="d-flex flex-nowrap flex-row">{drop}</div>
+      <div>
+        <Gallery img={HTML} />
+      </div>
     </div>
   );
 }
@@ -252,7 +262,11 @@ function CoffeeApp(bool?: boolean) {
     );
   });
 
-  return <div className="d-flex flex-nowrap flex-row">{drop}</div>;
+  return (
+    <div>
+      <Gallery img={Coffee} />
+    </div>
+  );
 }
 
 function OddOneOutGame(bool?: boolean) {
@@ -304,7 +318,7 @@ function OddOneOutGame(bool?: boolean) {
 
   return (
     <div>
-      <div className="d-flex flex-row">{drop}</div>
+      <Gallery img={ODD} />
     </div>
   );
 }
@@ -371,7 +385,11 @@ function ANDResponsiveDesign(bool?: boolean) {
     return <MoreText />;
   }
 
-  return <div className="d-flex flex-nowrap flex-row">{drop}</div>;
+  return (
+    <div>
+      <Gallery img={AND} />
+    </div>
+  );
 }
 
 function EPortfolio(bool?: boolean) {
@@ -453,20 +471,14 @@ function NotionAPI(bool?: boolean) {
 
   return (
     <div>
-      <div className="d-flex flex-row flex-nowrap">{drop}</div>
+      <Gallery img={Notion} />
     </div>
   );
 }
 
-function LocalMosque() {
-  return (
-    <div className="d-flex flex-row ">
-      <img
-        className="mx-auto"
-        src="https://i.imgur.com/1dv9UbE.png"
-        alt="Alexa dev console"
-      />
-      <br />
+function LocalMosque(bool?: boolean) {
+  const MoreText = () => {
+    return (
       <div className="d-flex flex-column m-4">
         <p>
           This skill is part of my home automation set that allows my alexa
@@ -489,6 +501,20 @@ function LocalMosque() {
           Browse the code here
         </a>
       </div>
+    );
+  };
+  if (bool === true) {
+    return <MoreText />;
+  }
+  return (
+    <div>
+      {/* <img
+        className="mx-auto"
+        src="https://i.imgur.com/1dv9UbE.png"
+        alt="Alexa dev console"
+      />
+      <br /> */}
+      <Gallery img={["https://i.imgur.com/1dv9UbE.png"]} />
     </div>
   );
 }
@@ -546,7 +572,11 @@ function PHPFocusedAssessment(bool?: boolean) {
     return <img className="me-1" src={x} alt={`PHP work ${index}`} />;
   });
 
-  return <div className="d-flex flex-nowrap flex-row">{drop}</div>;
+  return (
+    <div>
+      <Gallery img={PHPwork} />
+    </div>
+  );
 }
 
 function PHPFrameworks(bool?: boolean) {
@@ -614,7 +644,7 @@ function JavaMovies(bool?: boolean) {
 
   return (
     <div>
-      <div className="d-flex flex-row">{drop}</div>
+      <Gallery img={JAVAMovies} />
     </div>
   );
 }
@@ -674,7 +704,7 @@ function HedgehogSPA(bool?: boolean) {
 
   return (
     <div>
-      <div className="d-flex flex-row">{drop}</div>
+      <Gallery img={SPAwork} />
     </div>
   );
 }
@@ -715,12 +745,19 @@ function ThisnThat(bool?: boolean) {
   ];
 
   let drop = ProductivityApp.map((x, index) => {
-    return <img className="me-1" src={x} alt={`Productivity App ${index}`} />;
+    return (
+      <img
+        key={index.toString()}
+        className="me-1"
+        src={x}
+        alt={`Productivity App ${index}`}
+      />
+    );
   });
 
   return (
     <div>
-      <div className="d-flex flex-row">{drop}</div>
+      <Gallery img={ProductivityApp} />
     </div>
   );
 }

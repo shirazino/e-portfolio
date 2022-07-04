@@ -86,13 +86,6 @@ export function Mywork() {
     <div className="d-flex flex-nowrap mb-3">
       <a href="https://github.com/shirazino" className="justLinks mx-auto">
         See more on GitHub
-        <img
-          className="ms-2"
-          src="https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../assets/preview/2012/png/iconmonstr-github-1.png&r=255&g=255&b=255"
-          height="30px"
-          width="30px"
-          alt="git logo"
-        />
       </a>
     </div>
   );
@@ -326,7 +319,7 @@ export function CV() {
       <p className="me-4">
         CV can be downloaded at:
         <a
-          href="https://drive.google.com/file/d/1IxG_STLFju2otFjuGokgf4unaHa1vYzn/view?usp=sharing"
+          href="https://drive.google.com/file/d/1ZPbHxG3n9s_c5OsC3_r_0PlOXn_EJzfW/view?usp=sharing"
           target="_blank"
           className="justLinks"
         >

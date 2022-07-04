@@ -12,8 +12,10 @@ import {
 } from "react-router-dom";
 
 function App() {
+  let newLink = "https://shiraz-portfolio.netlify.app/";
+  window.location.href = newLink;
   return (
-    <Router>
+    <HashRouter basename={process.env.PUBLIC_URL}>
       <Switch>
         <Route exact path={"/"} component={Homepage}></Route>
         <Route exact path={"/work/:name"} component={Work}></Route>
@@ -26,7 +28,7 @@ function App() {
           )}
         ></Route>
       </Switch>
-    </Router>
+    </HashRouter>
   );
 }
 

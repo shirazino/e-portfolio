@@ -4,12 +4,7 @@ import "./style/borders.css";
 
 import { Homepage } from "./components/home";
 import { Work } from "./components/work";
-import {
-  Route,
-  Switch,
-  HashRouter,
-  BrowserRouter as Router,
-} from "react-router-dom";
+import { Route, Switch, HashRouter } from "react-router-dom";
 
 function App() {
   let newLink = "https://shiraz-portfolio.netlify.app/";

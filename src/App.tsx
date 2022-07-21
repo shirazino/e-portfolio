@@ -7,8 +7,8 @@ import { Work } from "./components/work";
 import { Route, Switch, HashRouter } from "react-router-dom";
 
 function App() {
-  let newLink = "https://shiraz-portfolio.netlify.app/";
-  window.location.href = newLink;
+  // let newLink = "https://shiraz-portfolio.netlify.app/";
+  // window.location.href = newLink;
   return (
     <HashRouter basename={process.env.PUBLIC_URL}>
       <Switch>

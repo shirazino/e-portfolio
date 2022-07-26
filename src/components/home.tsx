@@ -12,7 +12,7 @@ import ThemeSelector from "./theme";
 
 export function Homepage() {
   const [fontSize, setFontSize] = useState({});
-  const [windowSize, setWindowSize] = useState({});
+  // const [windowSize, setWindowSize] = useState({});
   const [justify, setJustify] = useState<string>("");
   var style = {
     marginTop: window.innerHeight / 2 - 100,
@@ -75,7 +75,7 @@ export function Homepage() {
         </svg>
       </div>
       <div className="d-flex flex-row justify-content-around">
-        <section id="sectionL" style={windowSize}>
+        <section id="sectionL">
           <ListProjects />
 
           <Skills />

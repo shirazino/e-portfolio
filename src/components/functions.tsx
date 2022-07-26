@@ -4,8 +4,15 @@ import { Meme } from "./notion";
 interface props {
   notionBlock: string;
   loop?: number;
+  RenderJSON?: boolean;
+  linkFormatting?: boolean;
 }
-export function Fetch({ notionBlock, loop }: props) {
+export function Fetch({
+  notionBlock,
+  loop,
+  RenderJSON,
+  linkFormatting,
+}: props) {
   const [notion, setNotion] = useState(null);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
@@ -29,9 +36,51 @@ export function Fetch({ notionBlock, loop }: props) {
       });
   }, []);
 
-  const notionValidation = () => {
+  const notionRender = () => {
     if (notion.status <= 400) {
       return <p>server error</p>;
+    } else if (RenderJSON === true) {
+      const folders: any = [];
+      var parsedObj: any[] = JSON.parse(
+        notion.results[0].paragraph.text[0].plain_text
+      );
+
+      for (var key in parsedObj[0]) {
+        folders.push(key);
+      }
+
+      return folders.map((folder: string, index: number) => {
+        const ExtractSkills = ({ JSONkey }: any) => {
+          return (
+            <span className="d-flex flex-wrap flex-row">
+              {parsedObj[0][JSONkey].map((x: string, num: number) => {
+                return (
+                  <p className="skills" key={num}>
+                    {x}
+                  </p>
+                );
+              })}
+            </span>
+          );
+        };
+
+        return (
+          <div key={index}>
+            <h5>{folder}</h5>
+            <ExtractSkills JSONkey={folder} />
+          </div>
+        );
+      });
+    } else if (linkFormatting === true) {
+      return (
+        <a
+          href={notion.results[0].code.text[0].plain_text}
+          target="_blank"
+          className="justLinks"
+        >
+          cv.pdf
+        </a>
+      );
     } else {
       var results = notion.results.map((res: any, index: number) => {
         return (
@@ -78,7 +127,7 @@ export function Fetch({ notionBlock, loop }: props) {
     }
   }
 
-  return <div>{loading ? fancySkeletonLoad() : notionValidation()}</div>;
+  return <div>{loading ? fancySkeletonLoad() : notionRender()}</div>;
 }
 
 export function Mywork() {
@@ -92,171 +141,79 @@ export function Mywork() {
 }
 
 export function ListProjects() {
-  var works = {
-    React: [
-      "HTML Tutor",
-      "Tasks-Calendar webapp",
-      "Prototype x AND Digital",
-      "Frontend SPA",
-      "e-Portfolio",
-    ],
-    React_Native: ["Coffi-da reviews app"],
+  interface workInt {
+    React?: string[];
+    React_Native?: string[];
+    Back_end?: string[];
+    PHP?: string[];
+    JavaScript?: string[];
+  }
 
-    Back_end: ["HTML Tutor backend", "Notion API", "Java Movies DB"],
-    PHP: ["Games reviews PHP", "PHP Survey"],
-    JavaScript: ["Local Mosque IOT", "Out Of The Loop game"],
-  };
+  var works: any = [
+    {
+      React: [
+        "HTML Tutor",
+        "Tasks-Calendar webapp",
+        "Prototype x AND Digital",
+        "Frontend SPA",
+        "e-Portfolio",
+      ],
+      React_Native: ["Coffi-da reviews app"],
 
-  var folder = [
-    works.React,
-    works.React_Native,
-    works.Back_end,
-    works.PHP,
-    works.JavaScript,
+      Back_end: ["HTML Tutor backend", "Notion API", "Java Movies DB"],
+      PHP: ["Games reviews PHP", "PHP Survey"],
+      JavaScript: ["Local Mosque IOT", "Out Of The Loop game"],
+    },
   ];
 
-  var arr1 = folder[0].map((x, index) => {
-    return (
-      <Link key={index} className="btns" to={"/work/" + x}>
-        {x}
-      </Link>
-    );
-  });
-  var arr2 = folder[1].map((x, index) => {
-    return (
-      <Link key={index} className="btns" to={"/work/" + x}>
-        {x}
-      </Link>
-    );
-  });
-  var arr3 = folder[2].map((x, index) => {
-    return (
-      <Link key={index} className="btns" to={"/work/" + x}>
-        {x}
-      </Link>
-    );
-  });
-  var arr4 = folder[3].map((x, index) => {
-    return (
-      <Link key={index} className="btns" to={"/work/" + x}>
-        {x}
-      </Link>
-    );
-  });
-  var arr5 = folder[4].map((x, index) => {
-    return (
-      <Link key={index} className="btns" to={"/work/" + x}>
-        {x}
-      </Link>
-    );
-  });
+  const ExtractProjects = ({ JSONkey }: any) => {
+    var proj = works[0][JSONkey].map((x: string, num: number) => {
+      return (
+        <Link key={num} className="btns" to={"/work/" + x}>
+          {x}
+        </Link>
+      );
+    });
+    return <span className="d-flex flex-wrap flex-row">{proj}</span>;
+  };
+
+  const DropProjects = () => {
+    var stack = [];
+
+    for (var key in works[0]) {
+      // console.log(key);
+      stack.push(key);
+    }
+    for (var i = 0; i < stack.length; i++) {
+      // console.log(stack[i]);
+      // console.log(works);
+
+      var folders = stack.map((folder: string, index: number) => {
+        return (
+          <div key={index}>
+            <h5>{folder}</h5>
+            <ExtractProjects JSONkey={folder} />
+          </div>
+        );
+      });
+    }
+    return <>{folders}</>;
+  };
 
   return (
     <div className="coolBorders">
       <h1 className="h1Title">Work</h1>
-      <p>
-        Many of my projects are web development websites mostly done with React
-        & Node JS, which involve appropriate industry standard techniques.
-        <br />
-        Here I have added my most successful projects from GitHub!
-      </p>
-      <h5>{Object.keys(works)[0]}</h5>
-      <p className="d-flex flex-wrap flex-row">{arr1}</p>
-      <h5>{Object.keys(works)[1]}</h5>
-      <p className="d-flex flex-wrap flex-row">{arr2}</p>
-      <h5>{Object.keys(works)[2]}</h5>
-      <p className="d-flex flex-wrap flex-row">{arr3}</p>
-      <h5>{Object.keys(works)[3]}</h5>
-      <p className="d-flex flex-wrap flex-row">{arr4}</p>
-      <h5>{Object.keys(works)[4]}</h5>
-      <p className="d-flex flex-wrap flex-row">{arr5}</p>
-
+      <DropProjects />
       <Mywork />
     </div>
   );
 }
 
 export function Skills() {
-  var skillSet = {
-    Web_development: ["React JS", "TypeScript", "CSS & Animations"],
-    Languages: ["JavaScript/Node js", "Python", "Java"],
-    Back_end: [
-      "Node JS",
-      "Express JS",
-      "PHP",
-      "Java Jersey",
-      "MySQL",
-      "Mongo DB",
-    ],
-    Mobile: ["React Native", "Android (Java)"],
-    Platforms: ["AWS", "Heroku", "GCP", "Vercel", "GitHub"],
-  };
-  var folder = [
-    skillSet.Web_development,
-    skillSet.Languages,
-    skillSet.Back_end,
-    skillSet.Mobile,
-    skillSet.Platforms,
-  ];
-
-  var category = [];
-  for (var x in skillSet) {
-    category.push(x);
-  }
-
-  var arr1 = folder[0].map((x, index) => {
-    return (
-      <p className="skills" key={index}>
-        {x}
-      </p>
-    );
-  });
-
-  var arr2 = folder[1].map((x, index) => {
-    return (
-      <p className="skills" key={index}>
-        {x}
-      </p>
-    );
-  });
-
-  var arr3 = folder[2].map((x, index) => {
-    return (
-      <p className="skills" key={index}>
-        {x}
-      </p>
-    );
-  });
-
-  var arr4 = folder[3].map((x, index) => {
-    return (
-      <p className="skills" key={index}>
-        {x}
-      </p>
-    );
-  });
-
-  var arr5 = folder[4].map((x, index) => {
-    return (
-      <p className="skills" key={index}>
-        {x}
-      </p>
-    );
-  });
-
   return (
     <div className="coolBorders">
       <h1 className={`mb-3 h1Title`}>Technical Skills</h1>
-      <h5>{category[0]}</h5>
-      <span className="d-flex flex-wrap flex-row">{arr1}</span>
-      <h5>{category[1]}</h5>
-      <span className="d-flex flex-wrap flex-row">{arr2}</span>
-      <h5>{category[2]}</h5>
-      <span className="d-flex flex-wrap flex-row">{arr3}</span>
-      <h5>{category[3]}</h5>
-      <span className="d-flex flex-wrap flex-row">{arr4}</span>
-      <h5>{category[4]}</h5>
-      <span className="d-flex flex-wrap flex-row">{arr5}</span>
+      <Fetch notionBlock="19d18d7e46c340e498c2cea7a2199ff6" RenderJSON={true} />
     </div>
   );
 }
@@ -280,13 +237,6 @@ export function Education() {
     },
   ];
 
-  var development = [
-    "React State Management - Redux",
-    "React with TypeScript",
-    "CSS Animations",
-    "Django x Python",
-    "Figma design",
-  ];
   var arr = qualifications.map((x, index) => {
     return (
       <p className="me-4" key={index}>
@@ -295,19 +245,16 @@ export function Education() {
       </p>
     );
   });
-  var arr2 = development.map((y, index) => {
-    return (
-      <p className="me-4" key={index}>
-        {y}
-      </p>
-    );
-  });
+
   return (
     <div className="coolBorders">
       <h1 className="mb-3 h1Title">Achievements</h1>
       {arr}
       <h3 className="h1Title">Personal learning</h3>
-      {arr2}
+
+      <div className="fetch mb-4">
+        <Fetch notionBlock="56fea52db8b84262b6b3cdfa6ef3a34c" loop={3} />
+      </div>
     </div>
   );
 }
@@ -316,16 +263,11 @@ export function CV() {
   return (
     <div className="coolBorders">
       <h1 className="h1Title">CV</h1>
-      <p className="me-4">
-        CV can be downloaded at:
-        <a
-          href="https://drive.google.com/file/d/1ZPbHxG3n9s_c5OsC3_r_0PlOXn_EJzfW/view?usp=sharing"
-          target="_blank"
-          className="justLinks"
-        >
-          cv.pdf
-        </a>
-      </p>
+      <p className="me-4">CV can be downloaded at:</p>
+      <Fetch
+        notionBlock="a4e4d7e9c80b48508c5580d34369053b"
+        linkFormatting={true}
+      />
     </div>
   );
 }

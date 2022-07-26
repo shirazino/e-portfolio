@@ -2,12 +2,6 @@ import React from "react";
 import { RouteComponentProps } from "react-router";
 import { Redirect } from "react-router-dom";
 import ThemeSelector from "./theme";
-import ImageGallery from "react-image-gallery";
-// # SCSS
-// import "react-image-gallery/styles/scss/image-gallery.scss";
-
-// # CSS
-// import "react-image-gallery/styles/css/image-gallery.css";
 import Gallery from "./Gallery";
 
 interface Props extends RouteComponentProps<{ name: string }> {}
@@ -126,21 +120,6 @@ function HTMLApp(bool?: boolean) {
     "https://i.imgur.com/68O94hj.png",
   ];
 
-  var width = 365.4;
-  var height = 791.25;
-
-  let drop = HTML.map((x, index) => {
-    return (
-      <img
-        key={index.toString()}
-        className="me-1"
-        src={x}
-        alt={`HTML Teaching tool ${index}`}
-        width={width}
-        height={height}
-      />
-    );
-  });
   if (bool === true) {
     return <MoreText />;
   }
@@ -247,21 +226,6 @@ function CoffeeApp(bool?: boolean) {
     return <MoreText />;
   }
 
-  var width = 365.4;
-  var height = 791.25;
-
-  let drop = Coffee.map((x, index) => {
-    return (
-      <img
-        className="me-1"
-        src={x}
-        alt={`Coffee platform React Native ${index}`}
-        width={width}
-        height={height}
-      />
-    );
-  });
-
   return (
     <div>
       <Gallery img={Coffee} />
@@ -312,10 +276,6 @@ function OddOneOutGame(bool?: boolean) {
     return <MoreText />;
   }
 
-  let drop = ODD.map((x, index) => {
-    return <img className="me-1" src={x} alt={`ODD stuff ${index}`} />;
-  });
-
   return (
     <div>
       <Gallery img={ODD} />
@@ -362,24 +322,6 @@ function ANDResponsiveDesign(bool?: boolean) {
     "https://i.imgur.com/dSi1ub4.png",
     "https://i.imgur.com/D5EwuTZ.png",
   ];
-
-  let drop = AND.map((x, index) => {
-    if (x === AND[0]) {
-      return (
-        <img
-          className="me-1 my-auto"
-          src={x}
-          alt={`AND PROTOTYPE x FIGMA ${index}`}
-          height={" 756px"}
-          width={"1416px"}
-        />
-      );
-    } else {
-      return (
-        <img className="mx-1" src={x} alt={`AND PROTOTYPE x FIGMA ${index}`} />
-      );
-    }
-  });
 
   if (bool === true) {
     return <MoreText />;
@@ -453,21 +395,6 @@ function NotionAPI(bool?: boolean) {
   if (bool === true) {
     return <MoreText />;
   }
-
-  var width = 365.4;
-  var height = 791.25;
-
-  let drop = Notion.map((x, index) => {
-    return (
-      <img
-        className="me-1 mx-auto"
-        src={x}
-        alt={`Notion work ${index}`}
-        width={width}
-        height={height}
-      />
-    );
-  });
 
   return (
     <div>
@@ -568,10 +495,6 @@ function PHPFocusedAssessment(bool?: boolean) {
     "https://w0m9oq.am.files.1drv.com/y4m5yNTPy2RUx2LHHRYNUyFYOA0H3KljJvtq1WsYOKh7x2b_LRJk9q8Df4OZVGSTeXSdqDSEP2U9rPbK6ToqZgSkAMGjUaBKkCTNlq5Po3KJRh6EYXHKEEiozYuhMxWCnAGNN48Q04gs5V9GIhElWsozM1R8sSCllgX0yO0ljqGIcIz-bKoCKunsY0q86VI51_aw0tgrFDbRc_2zijeAMuWgg/logIN.png?psid=1",
   ];
 
-  let drop = PHPwork.map((x, index) => {
-    return <img className="me-1" src={x} alt={`PHP work ${index}`} />;
-  });
-
   return (
     <div>
       <Gallery img={PHPwork} />
@@ -634,9 +557,6 @@ function JavaMovies(bool?: boolean) {
     "https://i.imgur.com/XHK2FjZ.png",
     "https://i.imgur.com/fDHKwch.png",
   ];
-  let drop = JAVAMovies.map((x, index) => {
-    return <img className="me-1" src={x} alt={`JAVA Movies ${index}`} />;
-  });
 
   if (bool === true) {
     return <MoreText />;
@@ -691,17 +611,6 @@ function HedgehogSPA(bool?: boolean) {
     "https://i.imgur.com/jljiNz7.png",
   ];
 
-  let drop = SPAwork.map((x, index) => {
-    return (
-      <img
-        className="me-1"
-        src={x}
-        alt={`useless SPA ${index}`}
-        height="832px"
-      />
-    );
-  });
-
   return (
     <div>
       <Gallery img={SPAwork} />
@@ -743,17 +652,6 @@ function ThisnThat(bool?: boolean) {
     "https://i.imgur.com/fnaW5Br.png",
     "https://i.imgur.com/7tuXuI8.png",
   ];
-
-  let drop = ProductivityApp.map((x, index) => {
-    return (
-      <img
-        key={index.toString()}
-        className="me-1"
-        src={x}
-        alt={`Productivity App ${index}`}
-      />
-    );
-  });
 
   return (
     <div>

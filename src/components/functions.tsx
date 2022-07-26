@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Meme } from "./notion";
+import { Fade, Slide } from "react-awesome-reveal";
 interface props {
   notionBlock: string;
   loop?: number;
@@ -90,7 +91,13 @@ export function Fetch({
           </div>
         );
       });
-      return <div>{results}</div>;
+      return (
+        <div>
+          <Fade cascade triggerOnce>
+            {results}
+          </Fade>
+        </div>
+      );
     }
   };
 
